@@ -1,26 +1,18 @@
 <template>
 
 	<div id="main page">
-
-	    <button v-on:click="zatvori" id="zatvori" class="zatvori">&times;</button>
-		<!-- registracija box vrv nece ovako da bude, baguje nesto a i bzvz je -->
-		<div id="registracijaPozadina"></div>
-		<div id="senka"></div>
-
-		<form @submit.prevent="ulogujSe" @keyup.esc="klikEsc" @keyup.enter="ulogujSe">
+		<form @submit.prevent="login" @keyup.enter="login">
 			<label id="greska"></label>
-			<input v-model="user" id="user" type="text" name="user" placeholder="Username"> <!-- skidam required sa kraja i odozdo-->
-			<input v-model="pass" id="pass" type="password" name="pass" placeholder="Password">
+			<input v-model="username" id="username" type="text" name="username" placeholder="Username"> <!-- skidam required sa kraja i odozdo-->
+			<input v-model="password" id="password" type="password" name="password" placeholder="Password">
 	
-			<!-- <router-link :to="{ name: 'shop', params: { user:user, pass:pass } }"> -->
+			<!-- <router-link :to="{ name: 'shop', params: { user:user, password:password } }"> -->
                 <button id="logIn" name="logIn">Uloguj se</button>
-                <!-- <button v-on:click="ulogujSe" id="logIn" name="logIn">Uloguj se</button> -->
+                <!-- <button v-on:click="login" id="logIn" name="logIn">Uloguj se</button> -->
             <!-- </router-link> -->
 			
-            <button v-on:click="registruj" type="button" id="register" name="register">Registruj se</button>
+            <button v-on:click="register" type="button" id="register" name="register">Register</button>
 		
-			<button id="prodavacDugme" name="prodavacDugme">Prodavac</button>
-			<button id="kupacDugme" name="kupacDugme">Kupac</button>
 		</form> 
 	
 		<!-- TODO ANDRIJA prebaciti ovo u zasebnu komponentu? -->
@@ -46,10 +38,10 @@
     		</svg>
 	  	</div>
 
+		<!-- TODO ANDRIJA OVERFLOW SLIKA TABELA -->
     	<img id="slikaLogo" src="../test.png"/>
 
 		<div id="odgSaBackenda"> {{ primio.odgovor }}</div>
-
   	</div>
 </template>
 
@@ -63,49 +55,22 @@ export default {
   	},
   	data() {
     	return{
-			user: '',
-			pass: '',
+			username: '',
+			password: '',
 			primio: {}
 		}
 	},
   	methods: {
-		registruj(){
-			if (document.getElementById("user").value=="")
-			{
-				document.getElementById("greska").innerHTML="Morate uneti korisničko ime";
-				return;
-			}
-			if (document.getElementById("pass").value=="")
-			{
-				document.getElementById("greska").innerHTML="Morate uneti lozinku";
-				return;
-			}
-			document.getElementById("prodavacDugme").style.display='block';
-			document.getElementById("kupacDugme").style.display='block';
-			document.getElementById("registracijaPozadina").style.display='block';
-			document.getElementById("zatvori").style.display='block';
-			document.getElementById("senka").style.display='block';
+		register(){
+			// TODO ANDRIJA cekam backend..
+			this.$router.push({ name: 'register'})
 		},
-		zatvori(){
-			document.getElementById("prodavacDugme").style.display='none';
-			document.getElementById("kupacDugme").style.display='none';
-			document.getElementById("registracijaPozadina").style.display='none';
-			document.getElementById("zatvori").style.display='none';
-			document.getElementById("senka").style.display='none';
-		},
-		klikEsc(){
-			document.getElementById("prodavacDugme").style.display='none';
-			document.getElementById("kupacDugme").style.display='none';
-			document.getElementById("registracijaPozadina").style.display='none';
-			document.getElementById("zatvori").style.display='none';
-			document.getElementById("senka").style.display='none';
-		},
-		async ulogujSe(){
+		async login(){
             // TODO ANDRIJA TODO VELJKO cekamo backend da prihvati ovo
 			// try {
-			// 	const response = await AuthenticationService.register({
-			// 		user: this.user,
-			// 		pass: this.pass
+			// 	const response = await AuthenticationService.login({
+			// 		username: this.username,
+			// 		password: this.password
 			// 	})
 			// 	console.log(response.data)
 
@@ -113,21 +78,21 @@ export default {
 			// 	this.primio = response.data;
 			// 	if (this.primio.odgovor == "ok"){
 			// 		// nek router prenese parametre
-			// 		this.$router.push({ name: 'shop', params: { user: this.user, pass: this.pass }})
+			// 		this.$router.push({ name: 'shop', params: { username: this.username, password: this.password }})
 			// 	}
 			// 	else this.$router.push('/error');
 			// } catch (err) {
 			//  	console.log(err);
 			// }
-			this.$router.push({ name: 'shop', params: { user: this.user, pass: this.pass }})
+			this.$router.push({ name: 'shop', params: { username: this.username, password: this.password }})
 
 			// const formData = new FormData();
-			// formData.append('korisnickoime', this.user); // "korisnickoime" : "staTiProsledim"
-			// formData.append('sifra', this.pass); // analogno
+			// formData.append('korisnickoime', this.username); // "korisnickoime" : "staTiProsledim"
+			// formData.append('sifra', this.password); // analogno
 
 			// console.log(formData);
-			// console.log(`username: ${this.user}`);
-			// console.log(`pass: ${this.pass}`);
+			// console.log(`usernamename: ${this.username}`);
+			// console.log(`password: ${this.password}`);
 		}
 	}
 }
@@ -165,7 +130,7 @@ body
 
 /* *********************************** PROZORCE ZA LOG IN / REGISTER *********************************** */
 
-#user, #pass
+#username, #password
 {
 	display: block;
     position: absolute;
@@ -183,7 +148,7 @@ body
 	text-align:center;
 }
 
-#pass
+#password
 {
     margin-top: -14px;
 }
@@ -414,7 +379,7 @@ body
   fill-opacity:0;
 }
 
-#user, #pass
+#username, #password
 {
 	animation-name: example;
     animation-duration: 4s;

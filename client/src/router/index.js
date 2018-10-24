@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Shop from '../components/Shop.vue'
 import VueRouter from 'vue-router'
 import Main from '../components/Main.vue'
+import Register from '../components/Register.vue'
 
 Vue.use(VueRouter)
 // majke mu ga nabijem routave
@@ -16,6 +17,9 @@ export default new VueRouter({
     {
       path: '/shop', name: 'shop', component: Shop 
       // path: '/shop:user:pass', name: 'shop', component: Shop // kad se salju parametri u url
+    },
+    {
+      path: '/register', name: 'register', component: Register
     }
   ]
 })

@@ -61,7 +61,7 @@
     grid-template-rows: 50px auto;
     grid-template-areas:
 		"header"
-        "content";
+    "content";
 	color: white;
 }
 
