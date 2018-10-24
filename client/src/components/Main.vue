@@ -1,44 +1,47 @@
 <template>
 
-	<div id="main page">
+	<div class="main page">
 		
 		<!-- TODO ANDRIJA OVERFLOW SLIKA TABELA -->
-    	<img id="logo_image" src="../test.png"/>
+		<div id="image_container">
+			<img id="logo_image" src="../test.png"/>
+		</div>
 
-		<form @submit.prevent="login" @keyup.enter="login">
-			<input v-model="username" id="username" type="text" name="username" placeholder="Username"> <!-- skidam required sa kraja i odozdo-->
-			<input v-model="password" id="password" type="password" name="password" placeholder="Password">
-	
-            <button id="login_button" name="login_button">Uloguj se</button>
-            <!-- <button v-on:click="logIn" id="login_button" name="login_button">Uloguj se</button> -->
-            <button v-on:click="register" type="button" id="register_button" name="register_button">Register</button>
+		<div id="main_container">
+			<form @submit.prevent="login" @keyup.enter="login">
+				<input v-model="username" id="username" type="text" name="username" placeholder="Username"> <!-- skidam required sa kraja i odozdo-->
+				<input v-model="password" id="password" type="password" name="password" placeholder="Password">
 		
-			<label id="error"></label>
-		</form> 
-	
-		<!-- TODO ANDRIJA prebaciti ovo u zasebnu komponentu? -->
-    	<div class="box">
-      		<svg style="z-index:9999;" id="mainlogo"  height="440" width="770">
-        		<g id="layer1" stroke-miterlimit="4" stroke-dasharray="none" transform="translate(0,-712.36218)">
-					<path id="outer_line" stroke-linejoin="miter" d="m385, 755 L95, 755 L95, 1085 L385, 1085" 
-						stroke="white" stroke-linecap="butt" stroke-width="5.5"> 
-					</path>
-
-		        	<path id="outer_line" stroke-linejoin="miter" d="m385, 755 L675, 755 L675, 1085 L385, 1085" 
-              			stroke="white" stroke-linecap="butt" stroke-width="5.5">
-		        	</path>
-
-		        	<path id="inner_input_box" stroke-linejoin="miter" d="m250, 800 L520, 800 L520, 860 L250, 860 Z" 
-              			stroke="white" stroke-linecap="butt" stroke-width="3.5">
-	        		</path>
-
-					<path id="inner_input_box" stroke-linejoin="miter" d="m520, 930 L250, 930 L250, 870 L520, 870 Z" 
-						stroke="white" stroke-linecap="butt" stroke-width="3.5">
-					</path>
-			  </g>
-    		</svg>
-	  	</div>
+				<button id="login_button" name="login_button">Uloguj se</button>
+				<!-- <button v-on:click="logIn" id="login_button" name="login_button">Uloguj se</button> -->
+				<button v-on:click="register" type="button" id="register_button" name="register_button">Register</button>
+			
+				<label id="error"></label>
+			</form> 
 		
+			<!-- TODO ANDRIJA prebaciti ovo u zasebnu komponentu? -->
+			<div class="box">
+				<svg style="z-index:9999;" id="mainlogo"  height="440" width="770">
+					<g id="layer1" stroke-miterlimit="4" stroke-dasharray="none" transform="translate(0,-712.36218)">
+						<path id="outer_line" stroke-linejoin="miter" d="m385, 755 L95, 755 L95, 1085 L385, 1085" 
+							stroke="white" stroke-linecap="butt" stroke-width="5.5"> 
+						</path>
+
+						<path id="outer_line" stroke-linejoin="miter" d="m385, 755 L675, 755 L675, 1085 L385, 1085" 
+							stroke="white" stroke-linecap="butt" stroke-width="5.5">
+						</path>
+
+						<path id="inner_input_box" stroke-linejoin="miter" d="m250, 800 L520, 800 L520, 860 L250, 860 Z" 
+							stroke="white" stroke-linecap="butt" stroke-width="3.5">
+						</path>
+
+						<path id="inner_input_box" stroke-linejoin="miter" d="m520, 930 L250, 930 L250, 870 L520, 870 Z" 
+							stroke="white" stroke-linecap="butt" stroke-width="3.5">
+						</path>
+				</g>
+				</svg>
+			</div>
+		</div>
   	</div>
 </template>
 
@@ -92,10 +95,30 @@ export default {
 </script>
 
 <style>
+/* OVO NE SME SCOPED JER GA APP OTVARA U SVOM I ONDA SE IGNORISE OVAJ STYLE SECTION.. */
+.main {
+	height: 100%;
+    display: grid;
+    grid-template-rows: 20% auto;
+    grid-template-areas:
+		"image_container"
+        "main-container";
+	color: white;
+}
+
+#image_container {
+	align-self: center;
+	justify-self: center;
+}
 
 #logo_image {
 	width:100px;
   	margin-top:30px;
+}
+
+#main_container{
+	align-self: center;
+	justify-self: center;
 }
 
 #username, #password {

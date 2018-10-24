@@ -33,8 +33,8 @@
 		},
     	// ovo created je da hvata ono sto saljemo preko routera
     	created() {
-        	    this.user = this.$route.params.user;
-            	this.pass = this.$route.params.pass;
+        	    this.user = this.$route.params.username;
+            	this.pass = this.$route.params.password;
     	}
 
     // OVO SAM KORISTIO KAO  <shopping-page :user=user :pass=pass></shopping-page> KAD IZ DRUGE STR POZIVAM OVU PA KAO
@@ -72,6 +72,7 @@ header {
 	font-size: 2rem;
 	display: grid;
 	grid-template-columns: repeat(3, auto);
+  
 }
 
 .sadrzaj {
@@ -79,6 +80,9 @@ header {
 	-webkit-animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 	        animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 			animation-delay: 1s;
+      
+	align-self: center;
+	justify-self: center;
 }
 
 .sadrzaj:hover {

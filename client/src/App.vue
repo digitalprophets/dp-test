@@ -47,7 +47,7 @@ body {
      background: -moz-radial-gradient(#0d0e0f, black); /* For Firefox 3.6 to 15 */ 
      background: radial-gradient(#0d0e0f, black); /* Standard syntax */ 
      background-repeat: repeat; 
-     text-align: center; 
+     /* text-align: center;  */
      width: 100%; 
      height: 100%; 
      background-color:#0d0e0f; 

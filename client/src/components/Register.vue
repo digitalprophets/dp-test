@@ -1,12 +1,13 @@
 <template>
 	<div class="register page">	
-		<header>
-			<div class="header-content"> 
+		
+        <div class="header"> 
+            <div class="header_content">
 				Welcome to the Divine Shop! 
-			</div>
-		</header>
+		</div>
+        </div>
 
-    	<div id="main-content">
+    	<div id="main_content">
             <div id="message">
                 <h1>Please fill in all of the boxes <br> and, when you are ready, click register!</h1>
             </div>
@@ -78,64 +79,41 @@
 
 .register {
 	height: 100%;
-	 margin: 0;
 
     display: grid;
     grid-template-rows: 50px auto;
     grid-template-areas:
 		"header"
-        "main-content";
+        "main_content";
 	color: white;
 }
 
-.header-content {
+.header {
     background-color:darkred;
     padding:10px;
 	border: 2px solid white;
 	font-size: 2rem;
-	display: grid;
-	grid-template-columns: auto;
-}
 
-.header-content {
+    display: grid;
+
 	font-weight: bold;
 	-webkit-animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 	        animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 			animation-delay: 1s;
 }
 
-.header:hover {
+.header_content{
+    width: fit-content;
+
+    align-self: center;
+    justify-self: center;
+}
+
+.header_content:hover {
 	cursor: pointer;
 }
 
-@-webkit-keyframes tracking-in-contract {
-  0% {
-    letter-spacing: 1em;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    letter-spacing: normal;
-    opacity: 1;
-  }
-}
-@keyframes tracking-in-contract {
-  0% {
-    letter-spacing: 1em;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    letter-spacing: normal;
-    opacity: 1;
-  }
-}
-
-#main-content {
+#main_content {
    	/* grid-area: content; */
 	justify-self: center;
     align-self: center;
@@ -148,6 +126,9 @@
 #message {
     padding: 50px;
     overflow: hidden;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
 }
 
 form {
@@ -205,4 +186,31 @@ form {
 	color: darkred;
 }
 	
+@-webkit-keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+
 </style>
