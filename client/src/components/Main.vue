@@ -1,47 +1,44 @@
 <template>
 
 	<div id="main page">
+		
+		<!-- TODO ANDRIJA OVERFLOW SLIKA TABELA -->
+    	<img id="logo_image" src="../test.png"/>
+
 		<form @submit.prevent="login" @keyup.enter="login">
-			<label id="greska"></label>
 			<input v-model="username" id="username" type="text" name="username" placeholder="Username"> <!-- skidam required sa kraja i odozdo-->
 			<input v-model="password" id="password" type="password" name="password" placeholder="Password">
 	
-			<!-- <router-link :to="{ name: 'shop', params: { user:user, password:password } }"> -->
-                <button id="logIn" name="logIn">Uloguj se</button>
-                <!-- <button v-on:click="login" id="logIn" name="logIn">Uloguj se</button> -->
-            <!-- </router-link> -->
-			
-            <button v-on:click="register" type="button" id="register" name="register">Register</button>
+            <button id="login_button" name="login_button">Uloguj se</button>
+            <!-- <button v-on:click="logIn" id="login_button" name="login_button">Uloguj se</button> -->
+            <button v-on:click="register" type="button" id="register_button" name="register_button">Register</button>
 		
+			<label id="error"></label>
 		</form> 
 	
 		<!-- TODO ANDRIJA prebaciti ovo u zasebnu komponentu? -->
-    	<div class="animacija">
+    	<div class="box">
       		<svg style="z-index:9999;" id="mainlogo"  height="440" width="770">
         		<g id="layer1" stroke-miterlimit="4" stroke-dasharray="none" transform="translate(0,-712.36218)">
-					<path id="ceoBox" stroke-linejoin="miter" d="m385, 755 L95, 755 L95, 1085 L385, 1085" 
+					<path id="outer_line" stroke-linejoin="miter" d="m385, 755 L95, 755 L95, 1085 L385, 1085" 
 						stroke="white" stroke-linecap="butt" stroke-width="5.5"> 
 					</path>
 
-		        	<path id="ceoBox" stroke-linejoin="miter" d="m385, 755 L675, 755 L675, 1085 L385, 1085" 
+		        	<path id="outer_line" stroke-linejoin="miter" d="m385, 755 L675, 755 L675, 1085 L385, 1085" 
               			stroke="white" stroke-linecap="butt" stroke-width="5.5">
 		        	</path>
 
-		        	<path id="ulazBox" stroke-linejoin="miter" d="m250, 800 L520, 800 L520, 860 L250, 860 Z" 
+		        	<path id="inner_input_box" stroke-linejoin="miter" d="m250, 800 L520, 800 L520, 860 L250, 860 Z" 
               			stroke="white" stroke-linecap="butt" stroke-width="3.5">
 	        		</path>
 
-					<path id="ulazBox" stroke-linejoin="miter" d="m520, 930 L250, 930 L250, 870 L520, 870 Z" 
+					<path id="inner_input_box" stroke-linejoin="miter" d="m520, 930 L250, 930 L250, 870 L520, 870 Z" 
 						stroke="white" stroke-linecap="butt" stroke-width="3.5">
 					</path>
 			  </g>
     		</svg>
 	  	</div>
-
-		<!-- TODO ANDRIJA OVERFLOW SLIKA TABELA -->
-    	<img id="slikaLogo" src="../test.png"/>
-
-		<div id="odgSaBackenda"> {{ primio.odgovor }}</div>
+		
   	</div>
 </template>
 
@@ -73,8 +70,6 @@ export default {
 			// 		password: this.password
 			// 	})
 			// 	console.log(response.data)
-
-
 			// 	this.primio = response.data;
 			// 	if (this.primio.odgovor == "ok"){
 			// 		// nek router prenese parametre
@@ -85,11 +80,9 @@ export default {
 			//  	console.log(err);
 			// }
 			this.$router.push({ name: 'shop', params: { username: this.username, password: this.password }})
-
 			// const formData = new FormData();
 			// formData.append('korisnickoime', this.username); // "korisnickoime" : "staTiProsledim"
 			// formData.append('sifra', this.password); // analogno
-
 			// console.log(formData);
 			// console.log(`usernamename: ${this.username}`);
 			// console.log(`password: ${this.password}`);
@@ -99,39 +92,13 @@ export default {
 </script>
 
 <style>
-@import url(http://fonts.googleapis.com/css?family=Lato);
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,500,300);
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
 
-*
-{
-    margin:0;
-    padding:0;
-    font-family: "Montserrat", Times, serif;
+#logo_image {
+	width:100px;
+  	margin-top:30px;
 }
 
-html
-{
-    height: 100%;
-    font-size:62.5%;
-    overflow-x:hidden;
-}
-
-body 
-{
-	height: 100%;
-	width:100%;
-	font-family: 'Lato', sans-serif;
-	color:#444;
-	margin: 0px;
-	background-color:grey;
-}
-
-/* *********************************** PROZORCE ZA LOG IN / REGISTER *********************************** */
-
-#username, #password
-{
+#username, #password {
 	display: block;
     position: absolute;
     top:42%;
@@ -148,13 +115,11 @@ body
 	text-align:center;
 }
 
-#password
-{
+#password {
     margin-top: -14px;
 }
 
-#greska
-{
+#error {
 	display: block;
     position: absolute;
     top:42%;
@@ -168,17 +133,14 @@ body
 	border:none; 
 	color:red;
 	text-align:center;
-	
 }
 
-
-#logIn, #register, #kupacDugme, #prodavacDugme
-{
+#login_button, #register_button {
 	display: table;
     position: absolute;
     top:42%;
     left:50%;
-    margin-left: 55px;
+    margin-left: 45px;
     margin-top: 110px;
 	z-index: 1;	
 	width:160px;
@@ -199,149 +161,24 @@ body
 	-webkit-transition-duration: 2s;	
 }
 	
-#register
-{
+#register_button {
     margin-left: -205px;
 }
 	
-#logIn:hover, #register:hover 
-{
+#login_button:hover, #register_button:hover {
 	border: 1px solid;
 	box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
 	outline-color: rgba(255, 255, 255, 0);
 	outline-offset: 25px;
 	text-shadow: 1px 1px 2px #427388; 
-}			
+}		
 
-#kupacDugme
-{
-	display: none;
-    margin-left: -195px;
-    margin-top: 40px;
-	z-index: 3;	
+#register_button:active, #login_button:active {
+	background:transparent;
+	color:white;
 }
 
-#prodavacDugme
-{
-	display: none;
-    margin-left: 45px;
-    margin-top: 40px;
-	z-index: 3;	
-}
-
-#registracijaPozadina
-{
-	height:200px;
-	width:500px;	
-	position: absolute;
-    top:42%;
-    left:50%;
-	margin-left:-250px;
-    margin-top:-84px;
-	border: 2px solid white;
-	z-index:3;
-	position:absolute;
-	opacity:1;
-	display:none;
-	background: #004276; /* For browsers that do not support gradients  */
-    background: -webkit-radial-gradient(#0d0e0f, black); /* Safari 5.1 to 6.0 */ 
-    background: -o-radial-gradient(#0d0e0f, black); /* For Opera 11.6 to 12.0 */ 
-    background: -moz-radial-gradient(#0d0e0f, black); /* For Firefox 3.6 to 15 */ 
-    background: radial-gradient(#0d0e0f, black); /* Standard syntax */ 
-	/* iznad je bio prvi parametar #004276 */
-    background-repeat: repeat;
-
-}
-
-#senka
-{
-	display: none;	
-	height:100%;
-	width:100%;
-	z-index:2;
-	position:absolute;
-	opacity:0.8;
-	background:black;
-}
-
-.zatvori 
-{
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-	position:absolute;
-	z-index:4;	
-	position: absolute;
-    top:42%;
-    left:50%;
-    margin-left: 205px;
-    margin-top: -72px;
-	width:30px;
-	height:30px;
-	background-color: transparent;
-	border:none;
-	display:none;
-	
-	/* POSTAVI IKSIC U CENTAR DIVA */
-	text-align: center;
-	vertical-align: middle;
-	line-height: 30px; /* MORA DA BUDE ISTA VISINA KAO VISINA DIVA */
-}
-
-.zatvori:hover 
-{
-    text-decoration: none;
-    cursor: pointer;	
-	border: 1px solid;
-	box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-	outline-color: rgba(255, 255, 255, 0);
-	outline-offset: 25px;
-	text-shadow: 1px 1px 2px #427388; 	
-}
-
-#kupacDugme:hover, #prodavacDugme:hover
-{
-	border: 1px solid;
-	box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-	outline-color: rgba(255, 255, 255, 0);
-	outline-offset: 25px;
-	text-shadow: 1px 1px 2px #427388; 	
-}
-
-/* dirano */
-#app  
-{ 
-     background: #0d0e0f; /* For browsers that do not support gradients  */
-     background: -webkit-radial-gradient(#0d0e0f, black); /* Safari 5.1 to 6.0 */ 
-     background: -o-radial-gradient(#0d0e0f, black); /* For Opera 11.6 to 12.0 */ 
-     background: -moz-radial-gradient(#0d0e0f, black); /* For Firefox 3.6 to 15 */ 
-     background: radial-gradient(#0d0e0f, black); /* Standard syntax */ 
-     background-repeat: repeat; 
-     text-align: center; 
-     width: 100%; 
-     height: 100%; 
-     background-color:#0d0e0f; 
-     display: block; 
-     position: relative; 
-     -webkit-box-sizing: border-box; 
-     -moz-box-sizing: border-box; 
-     box-sizing: border-box; 
-     overflow: hidden;
-} 
-
-#app:after 
-{
-    position: absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    z-index: 0;
-    opacity: 1;
-}
-
-.animacija 
-{
+.box {
     display: block;
     width:770px;
     height:340px;
@@ -352,13 +189,11 @@ body
     margin-top:-170px;
 }
 
-#mainlogo
-{
+#mainlogo {
   display:block;
 }
 
-#ceoBox
-{
+#outer_line {
     stroke-dasharray: 1700; /* manual se gadja duzina celog objekta koji se crta*/
     stroke-dashoffset: 1700; /* linija iscrtavanja logoa */
     animation: path_a 9s linear  forwards;
@@ -368,8 +203,7 @@ body
     fill-opacity:0;
 }
 
-#ulazBox
-{
+#inner_input_box {
   stroke-dasharray: 1500; /* manual se gadja duzina celog objekta koji se crta*/
   stroke-dashoffset: 1500; /* linija iscrtavanja logoa */
   animation: path_a 10s linear  forwards;
@@ -379,15 +213,13 @@ body
   fill-opacity:0;
 }
 
-#username, #password
-{
+#username, #password {
 	animation-name: example;
     animation-duration: 4s;
 	animation-timing-function: ease-in;
 }
 
-@keyframes example 
-{
+@keyframes example {
     from 
 	{
 		opacity:0;
@@ -398,79 +230,15 @@ body
 	}
 }
 
-#logIn, #register
-{
+#login_button, #register_button {
 	animation-name: example;
     animation-duration: 6s;
 	animation-timing-function: ease-in;
 	
 }
 
-#register:active
-{
-	background:transparent;
-	color:white;
-}
-
-#logIn:active
-{
-	background:transparent;
-	color:white;
-}
-
-#registracijaPozadina, #kupacDugme, #prodavacDugme, .zatvori
-{
-	-webkit-animation-name: rotateIn;
-	animation-name: rotateIn;
-    animation-duration: 1s;	
-}
-
-@-webkit-keyframes rotateIn 
-{
-	from 
-	{
-		-webkit-transform-origin: center;
-		transform-origin: center;
-		-webkit-transform: rotate3d(0, 0, 1, -200deg);
-		transform: rotate3d(0, 0, 1, -200deg);
-		opacity: 0;
-	}
-	
-	to 
-	{
-		-webkit-transform-origin: center;
-		transform-origin: center;
-		-webkit-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
-		opacity: 1;
-	}
-}
-
-@keyframes rotateIn 
-{
-	from 
-	{
-		-webkit-transform-origin: center;
-		transform-origin: center;
-		-webkit-transform: rotate3d(0, 0, 1, -200deg);
-		transform: rotate3d(0, 0, 1, -200deg);
-		opacity: 0;
-	}
-	
-	to 
-	{
-		-webkit-transform-origin: center;
-		transform-origin: center;
-		-webkit-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
-		opacity: 1;
-	}
-}
-
 /* DOLE SE DEFINISE KAKO SE "ANIMIRANE" STVARI PONASAJU */
-
-@keyframes line_a 
-{
+@keyframes line_a {
 	0% 
 	{
 		stroke-dashoffset: 701;
@@ -485,8 +253,7 @@ body
 	}
 }
 
-@keyframes path_i 
-{
+@keyframes path_i {
 	0% 
 	{
 		fill-opacity:0;
@@ -507,8 +274,7 @@ body
 	}
 }
 
-@keyframes path_a 
-{
+@keyframes path_a {
 	0% 
 	{
 		stroke-dashoffset: 1700;
@@ -529,8 +295,7 @@ body
 	}
 }
 
-@-webkit-keyframes line_a 
-{
+@-webkit-keyframes line_a {
 	0% 
 	{
 		stroke-dashoffset: 701;
@@ -545,8 +310,7 @@ body
 	}
 }
 
-@-webkit-keyframes path_i 
-{
+@-webkit-keyframes path_i {
 	0% 
 	{
 		fill-opacity:0;
@@ -567,8 +331,7 @@ body
 	}
 }
 
-@-webkit-keyframes path_a 
-{
+@-webkit-keyframes path_a {
 	0% 
 	{
 		stroke-dashoffset: 1700;
@@ -588,64 +351,4 @@ body
 		stroke-dashoffset: 0;
 	}
 }
-
-@-webkit-keyframes fadeOut 
-{ 
-    0% 
-	{
-		opacity: 1;
-	} 
-    100% 
-	{
-		opacity: 0;
-	} 
-} 
-
-@keyframes fadeOut 
-{ 
-    0% 
-	{
-		opacity: 1;
-	}	
-    100% 
-	{
-		opacity: 0;
-	} 
-} 
-
-@-webkit-keyframes fadeIn 
-{ 
-    0% 
-	{
-		opacity: 0;
-	} 
-    100% 
-	{
-		opacity: 1;
-	} 
-} 
-
-@keyframes fadeIn 
-{ 
-    0% 
-	{
-		opacity: 0;
-	} 
-    100% 
-	{
-		opacity: 1;
-	} 
-}
-
-#slikaLogo{
-	width:100px;
-  	margin-top:30px;
-}
-
-#odgSaBackenda{
-	font-size: 5rem;
-	color: white;
-	margin-top: 500px;
-}
-
 </style>

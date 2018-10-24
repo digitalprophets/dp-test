@@ -1,23 +1,11 @@
 <template>
 
 	<div id="app">
-		<!-- <nav>
-        	<router-link to="/shoppingPage">About</router-link> 
-    	</nav>         -->
-
-		<!-- zajebancija xD animacija izmedju stranica -->
-		<!-- <transition name="router-anim" enter-active-class="animated zoomInDown" leave-active-class="animated zoomOutUp">
-   			<router-view/>
-		</transition> -->
-
 		<transition name="router-anim">
    			<router-view/>
 		</transition>
-    	<!-- <router-view/> -->
-
-    <!-- <shopping-page :user=user :pass=pass></shopping-page> prikazi shopping page ovde--> 
-
   	</div>
+	  
 </template>
 
 <script>
@@ -25,6 +13,51 @@
 </script>
 
 <style>
+@import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,500,300);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", Times, serif;
+}
+
+html {
+    height: 100%;
+	width: 100%;
+    font-size:62.5%;
+    overflow-x:hidden;
+}
+
+body {
+	height: 100%;
+	width:100%;
+	font-family: 'Lato', sans-serif;
+	color:#444;
+	margin: 0px;
+	background-color:grey;
+}
+
+#app { 
+    background: #0d0e0f; /* For browsers that do not support gradients  */
+     background: -webkit-radial-gradient(#0d0e0f, black); /* Safari 5.1 to 6.0 */ 
+     background: -o-radial-gradient(#0d0e0f, black); /* For Opera 11.6 to 12.0 */ 
+     background: -moz-radial-gradient(#0d0e0f, black); /* For Firefox 3.6 to 15 */ 
+     background: radial-gradient(#0d0e0f, black); /* Standard syntax */ 
+     background-repeat: repeat; 
+     text-align: center; 
+     width: 100%; 
+     height: 100%; 
+     background-color:#0d0e0f; 
+     display: block; 
+     position: relative; 
+     -webkit-box-sizing: border-box; 
+     -moz-box-sizing: border-box; 
+     box-sizing: border-box; 
+     overflow: hidden;
+} 
 
 .page {
 	position: fixed;
@@ -33,12 +66,12 @@
 
 .router-anim-enter-active {
 	animation: zoomInDown 1s;
-  	animation-duration: .8s;
+  	animation-duration: 1s;
   	opacity: 0;
 }
 .router-anim-leave-active {
   	animation: zoomOutUp 1s;
- 	 animation-duration: .8s;
+ 	 animation-duration: 1s;
 }
 
 @-webkit-keyframes zoomInDown {
