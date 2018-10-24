@@ -51,3 +51,8 @@ Iz package.json ("devDependencies") u client delu sam izbacio:
 "@vue/cli-plugin-eslint": "^3.0.5",
 "@vue/eslint-config-standard": "^3.0.5",
 jer erroruje kad ima space viska i sl. meni smeta, ako smeta sto smeta, vraticu, ili vratite // Andrija
+
+---------- MANE I GRESKE KOJIH SMO SVESNI ------------
+
+Ne umem da main page konvertujem u lep grid jer sam ko debil pravio ovu animaciju u absolute position,
+zato se logo i tabela overlapuju kad se smanji prozor jbg // Andrija

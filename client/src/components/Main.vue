@@ -102,7 +102,7 @@ export default {
     grid-template-rows: 20% auto;
     grid-template-areas:
 		"image_container"
-        "main-container";
+        "main_container";
 	color: white;
 }
 

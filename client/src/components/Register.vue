@@ -4,7 +4,7 @@
         <div class="header"> 
             <div class="header_content">
 				Welcome to the Divine Shop! 
-		</div>
+		    </div>
         </div>
 
     	<div id="main_content">
@@ -30,7 +30,7 @@
                 <button type="submit" class="button">REGISTER</button>
             </form>
             <!-- TODO ANDRIJA ZAJEBANCIJA -->
-            <div style="color: red; font-size: 2rem;" id="poruka">{{ poruka }} </div>
+            <div style="color: red; font-size: 2rem; text-align:center;" id="poruka">{{ poruka }} </div>
         </div>
   	</div>
 </template>
@@ -79,7 +79,6 @@
 
 .register {
 	height: 100%;
-
     display: grid;
     grid-template-rows: 50px auto;
     grid-template-areas:
