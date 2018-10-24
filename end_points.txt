@@ -1,0 +1,132 @@
+- klijent na 8080 port
+- server na 8081 port
+
+- registracija
+    post na /register
+        {
+            "username":
+            "email":
+            "password"
+        }
+    odgovor
+        {
+            "jwt":  // JSON Web token
+        }
+- log in
+    post na /login
+        {
+            "username':
+            "password":
+        }
+    odgovor
+        {
+            "jwt":  // JSON Web token
+        }
+
+- svi proizvodi
+    get na /products
+    - opciono /products?s=''
+    za pretrazivanje
+    
+    odgovor
+    {
+        "products": [
+            {
+                "name":
+                "price":
+                "category":
+                "description":
+                "image":
+            }
+        ]
+    }
+
+- jedan proizvod
+     get na /products/id
+
+     odgovor
+     {
+            "name":
+            "price":
+            "category":
+            "description":
+            "image":
+     }
+
+- profil trenutnog klijenta
+    get na /me
+
+    odgovor
+    {
+        "name":
+        "email":
+        "purchases": [
+            {
+                "product": {
+                    "name":
+                    "price":
+                    "category": id broj
+                    "description":
+                    "image":
+                }
+                "date":
+                "seller_username":
+            }
+        ]
+    }
+
+    - mozda je bolje da spojimo /me i /me/history u jedan zahtev
+
+- dodavanje oglasa
+    post na /products
+    {
+        "name":
+        "price":
+        "category": id broj
+        "description":
+        "image":
+    }
+
+    odgovor
+    {
+        // sam objekat koji se salje ili nista cak
+        // mislim da je standard da se salje objekat
+    }
+
+- korisnik menja oglase
+    put na /products/id
+    {
+        "name":
+        "price":
+        "category": id broj
+        "description":
+        "image":
+    }
+
+    odgovor
+    {
+        // sam objekat koji je izmenjen ili nista cak
+        // mislim da je standard da se salje objekat
+    }
+
+- korisnik brise oglase
+    delete na /products/id
+
+    odgovor
+    {
+        "name":
+        "price":
+        "category": id broj
+        "description":
+        "image":
+    }
+
+- kupovina
+    post na /buy
+    {
+        "buyer_id":
+        "product_id":
+    }
+
+PREDLOG:
+    - ocenjivanje prodavaca
