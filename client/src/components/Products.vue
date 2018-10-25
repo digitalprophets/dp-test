@@ -12,28 +12,24 @@
 			</div>
 		</header>
 
-    	<div id="content">
-      		<h1>Ovo je products page username je 
-		  		<span id="korisnik" style="color:red;">{{ user }}</span> 
-		  		a sifra je <span id="lozinka" style="color:blue;">{{pass}}</span>
-			</h1>
+    	<div id="main_content">
+			<div id="main_content_text">
+				<h1>Ovo je products page username je 
+		  			<span id="korisnik" style="color:red;">{{ user }}</span> 
+		  			a sifra je <span id="lozinka" style="color:blue;">{{pass}}</span>
+				</h1>
+			</div>
 			
-		<div id ="oglasi">
-				
+			<div id ="product_section">
 				<!-- TODO ANDRIJA eslint smara pa sam stavio ovaj key iako nzm cemu sluzi -->
-				<div v-for="n in 3" v-bind:key="n"> 
-					<div class="col span1">
-						<p> naziv </p>
-						<div class="item">
-							<img src="../slike/proba.jpg">
-							<div class="item-overlay">
-								<button class="dugmeta">cena</button>
-
-							</div>
-						</div>
+				<div v-for="n in 3" v-bind:key="n" class="product">
+					<img src="../slike/proba.jpg">
+					<div class="button_container">
+						<button v-on:click="kupovina" class="dugmeta">KUPI ME ZA DVE-TRI LAZI</button>
 					</div>
 				</div>
-    	</div>
+			</div>
+			<div id="porukaZaKupca"></div>
 		</div>
   	</div>
 </template>
@@ -84,8 +80,12 @@ import ProductService from '../services/ProductService'
 			// TODO ANDRIJA ovde uhvati proizvode sa backenda
 			// this.products = (await ProductService.getAllProducts()).data
 			// console.log('products', this.products)
+		},
+		methods: {
+		kupovina(){
+			document.getElementById('porukaZaKupca').innerHTML="pocni tamo gde je ona stala"
 		}
-
+		}
     // OVO SAM KORISTIO KAO  <shopping-page :user=user :pass=pass></shopping-page> KAD IZ DRUGE STR POZIVAM OVU PA KAO
     // props: {
     //   user: {
@@ -104,13 +104,13 @@ import ProductService from '../services/ProductService'
 
 .products{
 	height: 100%;
-	 margin: 0;
-
+	width: 100%;
+	margin: 0;
     display: grid;
     grid-template-rows: 50px auto;
     grid-template-areas:
 		"header"
-    "content";
+    	"main_content";
 	color: white;
 }
 
@@ -137,7 +137,6 @@ header {
 .sadrzaj:hover {
 	cursor: pointer;
 }
-
 
 @-webkit-keyframes tracking-in-contract {
   0% {
@@ -166,10 +165,59 @@ header {
   }
 }
 
-#content {
-   	/* grid-area: content; */
+#main_content {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-rows: 20% auto;
+}
+
+#main_content_text {
+	display: grid;
+}
+
+#main_content_text h1 {
+	align-self: center;
 	justify-self: center;
-    align-self: center;
+}
+
+#product_section {
+	display: grid; 
+	 grid-template-columns: auto auto auto;
+	  grid-auto-rows: 200px;   
+}
+
+.product {
+	align-self: center;
+	justify-self: center;
+	height: 150px;
+}
+
+.button_container {
+	display: grid;
+}
+
+button {
+	justify-self: center;
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	float:left;
+	border: #fbfbfb solid 2px;
+	cursor:pointer;
+	background: #0d0e0f; /* For browsers that do not support gradients  */
+    background: radial-gradient(#0d0e0f, black); /* Standard syntax */ 
+    background-repeat: repeat; 
+	color:white;
+	font-size:10px;
+	padding: 3px;
+	transition: all 0.3s;
+	font-weight:700;
+}
+
+#porukaZaKupca {
+	text-align: center;
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color: red;
 }
 
 #korisnik {
@@ -278,177 +326,5 @@ header {
     -webkit-transform: translate(0);
             transform: translate(0);
   }
-}
-
-.sekcije 
-{
-	width: 80%;
-	margin: 0 auto;
-	
-}
-
-.zaText 
-{
-    font-size:20px;
-    font-size:2rem;
-    margin: 40px;
-}
-
-p 
-{
-	line-height: 1.4;
-}
-
-.zaText h1 
-{
-	margin: 16px auto;
-	text-align: center;
-	text-transform: uppercase;
-}
-
-a 
-{
-	text-decoration: none;
-	color: #3498db;
-}
-
-
-.redURad 
-{
-    clear: both;
-    padding: 0px;
-    margin: 0px;
-    margin-bottom: 20px;
-}
-
-.col 
-{
-    display: block;
-    float:left;
-    margin: 1% 0 1% 8%;
-}
-
-.item
-{
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-.col p, .col a
-{
-    text-transform: uppercase;
-    display: block;
-    text-align: center;
-    color: #607D8B;
-    font: 400 17px/30px "Roboto",sans-serif;
-}
-
-.item-overlay
-{
-    position: absolute;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    background:rgba(27, 28, 28, 0);
-
-    -moz-transition: background 0.3s;
-    -webkit-transition: background 0.3s;
-    transition: background 0.3s;
-}
-
-.item-overlay p, .item-overlay a
-{
-    position: relative;
-    display: block;
-    top: 50%; 
-    width:100%;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(-50%);
-
-    -moz-transition: opacity 0.3s;
-    -webkit-transition: opacity 0.3s;
-	transition: opacity 0.3s;
-}
-
-.item img 
-{
-    max-width: 100%;
-    margin:0px;
-    padding: 0px;
-    vertical-align: bottom;
-    
-    -moz-transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-}
-
-.item:hover img 
-{
-    -moz-transform: scale(1.3);
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3);
-}
-
-.item:hover .item-overlay
-{
-    background:rgba(27, 28, 28, 0.9); /* BOJA KAD SE STANE MISEM */
-}
-
-.item:hover .item-overlay p
-{
-    opacity: 1;
-}
-
-.item:hover .item-overlay a
-{
-    opacity: 1;
-	height:100%;
-}
-
-/* majstorski poduhvat, div u linku da bi tekst u linku bio na sredini a link preko cele slike. medjutim to nije ni potrebno */
-.divA
-{
-	padding-top:25%;
-}
-
-.dugmeta
-{
-	width:100%;
-	height:100%;
-	opacity:0;
-	color: #607D8B;
-    font: 400 17px/30px "Roboto",sans-serif;
-}
-
-.dugmeta:hover
-{
-	opacity:0.6;
-	border:none;
-	transition:0.5s;
-	cursor: pointer;
-}
-
-.col:first-child 
-{
-	margin-left: 0; 
-}
-
-.grupa:before, .grupa:after 
-{ 
-	content:""; 
-	display:table; 
-}
-
-.grupa:after 
-{
-	clear:both;
-}
-
-.span1
-{
-	width: 28%; 
 }
 </style>
