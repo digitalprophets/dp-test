@@ -20,16 +20,17 @@
 				</h1>
 			</div>
 			
+			<div id="porukaZaKupca"></div>
+			
 			<div id ="product_section">
 				<!-- TODO ANDRIJA eslint smara pa sam stavio ovaj key iako nzm cemu sluzi -->
-				<div v-for="n in 3" v-bind:key="n" class="product">
+				<div v-for="n in 5" v-bind:key="n" class="product">
 					<img src="../slike/proba.jpg">
 					<div class="button_container">
-						<button v-on:click="kupovina" class="dugmeta">KUPI ME ZA DVE-TRI LAZI</button>
+						<button v-on:click="kupovina">KUPI ME ZA DVE-TRI LAZI</button>
 					</div>
 				</div>
 			</div>
-			<div id="porukaZaKupca"></div>
 		</div>
   	</div>
 </template>
@@ -121,7 +122,6 @@ header {
 	font-size: 2rem;
 	display: grid;
 	grid-template-columns: repeat(3, auto);
-  
 }
 
 .sadrzaj {
@@ -182,15 +182,24 @@ header {
 }
 
 #product_section {
+	width: 80%;
+	align-self: center;
+	justify-self: center;
 	display: grid; 
-	 grid-template-columns: auto auto auto;
-	  grid-auto-rows: 200px;   
+	grid-template-columns: auto auto auto;
+	grid-auto-rows: 300px;
+	grid-gap: 10px;
 }
 
 .product {
 	align-self: center;
 	justify-self: center;
-	height: 150px;
+	height: 250px;
+	width: 350px;
+}
+
+.product img {
+	width: 100%;
 }
 
 .button_container {
@@ -233,6 +242,35 @@ button {
 	-webkit-animation: vibrate-3 0.5s linear infinite reverse both;
 	        animation: vibrate-3 0.5s linear infinite reverse both;
 }
+
+@media all and (max-width: 1300px) /* kad da se ispravlja */
+{
+	
+#product_section {
+	grid-auto-rows: 300px;
+	grid-gap: 3px;
+}
+
+.product {
+	height: 150px;
+	width: 250px;
+}
+}
+
+@media all and (max-width: 900px) /* kad da se ispravlja */
+{
+	
+#product_section {
+	grid-auto-rows: 150px;
+	grid-gap: 3px;
+}
+
+.product {
+	height: 90px;
+	width: 120px;
+}
+}
+
 
 
 @-webkit-keyframes vibrate-3 {

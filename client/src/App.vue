@@ -28,7 +28,7 @@ html {
     height: 100%;
 	width: 100%;
     font-size:62.5%;
-    overflow-x:hidden;
+  	overflow: auto;
 }
 
 body {
@@ -42,25 +42,26 @@ body {
 
 #app { 
     background: #0d0e0f; /* For browsers that do not support gradients  */
-     background: -webkit-radial-gradient(#0d0e0f, black); /* Safari 5.1 to 6.0 */ 
-     background: -o-radial-gradient(#0d0e0f, black); /* For Opera 11.6 to 12.0 */ 
-     background: -moz-radial-gradient(#0d0e0f, black); /* For Firefox 3.6 to 15 */ 
-     background: radial-gradient(#0d0e0f, black); /* Standard syntax */ 
-     background-repeat: repeat; 
-     /* text-align: center;  */
-     width: 100%; 
-     height: 100%; 
-     background-color:#0d0e0f; 
-     display: block; 
-     position: relative; 
-     -webkit-box-sizing: border-box; 
-     -moz-box-sizing: border-box; 
-     box-sizing: border-box; 
-     overflow: hidden;
-} 
+	background: -webkit-radial-gradient(#0d0e0f, black); /* Safari 5.1 to 6.0 */ 
+	background: -o-radial-gradient(#0d0e0f, black); /* For Opera 11.6 to 12.0 */ 
+	background: -moz-radial-gradient(#0d0e0f, black); /* For Firefox 3.6 to 15 */ 
+	background: radial-gradient(#0d0e0f, black); /* Standard syntax */ 
+	background-repeat: repeat; 
+	/* text-align: center;  */
+    width: 100%; 
+    height: 100%; 
+    background-color:#0d0e0f; 
+    display: block; 
+    position: relative; 
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box; 
+  	overflow: auto;
+}
+
 
 .page {
-	position: fixed;
+	position: absolute;
    	width: inherit;
 }
 
