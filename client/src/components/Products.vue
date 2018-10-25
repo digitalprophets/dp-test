@@ -18,20 +18,23 @@
 		  		a sifra je <span id="lozinka" style="color:blue;">{{pass}}</span>
 			</h1>
 			
-    	</div>
 		<div id ="oglasi">
-				<div v-for="product in proizvodi" :key="product.id" class="redURad grupa zaText">
+				
+				<!-- TODO ANDRIJA eslint smara pa sam stavio ovaj key iako nzm cemu sluzi -->
+				<div v-for="n in 3" v-bind:key="n"> 
 					<div class="col span1">
+						<p> naziv </p>
 						<div class="item">
 							<img src="../slike/proba.jpg">
-								<div class="item-overlay">
-									<button class="dugmeta">{{ product.price }}</button>
-										<p> {{product.name}} </p>
-								</div>
+							<div class="item-overlay">
+								<button class="dugmeta">cena</button>
+
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+    	</div>
+		</div>
   	</div>
 </template>
 
@@ -276,6 +279,39 @@ header {
             transform: translate(0);
   }
 }
+
+.sekcije 
+{
+	width: 80%;
+	margin: 0 auto;
+	
+}
+
+.zaText 
+{
+    font-size:20px;
+    font-size:2rem;
+    margin: 40px;
+}
+
+p 
+{
+	line-height: 1.4;
+}
+
+.zaText h1 
+{
+	margin: 16px auto;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+a 
+{
+	text-decoration: none;
+	color: #3498db;
+}
+
 
 .redURad 
 {
