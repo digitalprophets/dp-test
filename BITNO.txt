@@ -39,10 +39,9 @@ https://www.youtube.com/watch?v=1NSPAz1Qc-I // pt.4 dekomponovanje, slots {jedna
 
 ---------- SUGGESTION BOX ------------
 
-Segmenti koda kojima je potrebna paznja nekog od clanova tima oznacavati sa: "TODO IME_CLANA" kao komentar iznad. // Andrija
+Segmenti koda kojima je potrebna paznja nekog od clanova tima oznacavati sa: "TODO IME_CLANA" kao komentar. // Andrija
 
 Firefox > Chrome, meni se mnogo brze loaduje (mozda je i subjektivan stav jer ja uvek koristim firefox) // Andrija
-
 
 
 ---------- IZMENE OPCIJA ------------

@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import ProductService from '../services/ProductService'
+
 	export default {
     	name: 'shop',
 		data() {
@@ -32,10 +34,13 @@
 			}
 		},
     	// ovo created je da hvata ono sto saljemo preko routera
-    	created() {
-        	    this.user = this.$route.params.username;
-            	this.pass = this.$route.params.password;
-    	}
+   		created() {
+       	    this.user = this.$route.params.username;
+           	this.pass = this.$route.params.password;
+		},
+		mounter() {
+			// TODO ANDRIJA ovde uhvati proizvode sa backenda
+		}
 
     // OVO SAM KORISTIO KAO  <shopping-page :user=user :pass=pass></shopping-page> KAD IZ DRUGE STR POZIVAM OVU PA KAO
     // props: {
