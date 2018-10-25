@@ -1,5 +1,5 @@
 <template>
-	<div class="shop page">	
+	<div class="products page">	
 		<header>
 			<div class="sadrzaj"> 
 				sadrzaj.. 
@@ -11,14 +11,27 @@
 				govna.. 
 			</div>
 		</header>
+
     	<div id="content">
-      		<h1>Ovo je shopping page username je 
+      		<h1>Ovo je products page username je 
 		  		<span id="korisnik" style="color:red;">{{ user }}</span> 
 		  		a sifra je <span id="lozinka" style="color:blue;">{{pass}}</span>
 			</h1>
+			
     	</div>
-		
-
+		<div id ="oglasi">
+				<div v-for="product in proizvodi" :key="product.id" class="redURad grupa zaText">
+					<div class="col span1">
+						<div class="item">
+							<img src="../slike/proba.jpg">
+								<div class="item-overlay">
+									<button class="dugmeta">{{ product.price }}</button>
+										<p> {{product.name}} </p>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
   	</div>
 </template>
 
@@ -26,20 +39,48 @@
 import ProductService from '../services/ProductService'
 
 	export default {
-    	name: 'shop',
+    	name: 'products',
 		data() {
 			return {
 				user:'',
-				pass:''
+				pass:'',
+				products: null,
+				proizvodi: [
+					{
+						id: '1',
+						name: 'bicikla1',
+						price: '10',
+						category: '',
+						description: '', 
+						image: ''
+					},
+					{
+						id: '2',
+						name: 'bicikla2',
+						price: '20',
+						category: '',
+						description: '', 
+						image: ''
+					},
+					{
+						id: '3',
+						name: 'bicikla3',
+						price: '30',
+						category: '',
+						description: '', 
+						image: ''
+					}
+				]
 			}
 		},
-    	// ovo created je da hvata ono sto saljemo preko routera
    		created() {
        	    this.user = this.$route.params.username;
            	this.pass = this.$route.params.password;
 		},
-		mounter() {
+		async mounted() {
 			// TODO ANDRIJA ovde uhvati proizvode sa backenda
+			// this.products = (await ProductService.getAllProducts()).data
+			// console.log('products', this.products)
 		}
 
     // OVO SAM KORISTIO KAO  <shopping-page :user=user :pass=pass></shopping-page> KAD IZ DRUGE STR POZIVAM OVU PA KAO
@@ -58,7 +99,7 @@ import ProductService from '../services/ProductService'
 
 <style scoped>
 
-.shop{
+.products{
 	height: 100%;
 	 margin: 0;
 
@@ -236,4 +277,142 @@ header {
   }
 }
 
+.redURad 
+{
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+.col 
+{
+    display: block;
+    float:left;
+    margin: 1% 0 1% 8%;
+}
+
+.item
+{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.col p, .col a
+{
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    color: #607D8B;
+    font: 400 17px/30px "Roboto",sans-serif;
+}
+
+.item-overlay
+{
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:rgba(27, 28, 28, 0);
+
+    -moz-transition: background 0.3s;
+    -webkit-transition: background 0.3s;
+    transition: background 0.3s;
+}
+
+.item-overlay p, .item-overlay a
+{
+    position: relative;
+    display: block;
+    top: 50%; 
+    width:100%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-50%);
+
+    -moz-transition: opacity 0.3s;
+    -webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+
+.item img 
+{
+    max-width: 100%;
+    margin:0px;
+    padding: 0px;
+    vertical-align: bottom;
+    
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.item:hover img 
+{
+    -moz-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+.item:hover .item-overlay
+{
+    background:rgba(27, 28, 28, 0.9); /* BOJA KAD SE STANE MISEM */
+}
+
+.item:hover .item-overlay p
+{
+    opacity: 1;
+}
+
+.item:hover .item-overlay a
+{
+    opacity: 1;
+	height:100%;
+}
+
+/* majstorski poduhvat, div u linku da bi tekst u linku bio na sredini a link preko cele slike. medjutim to nije ni potrebno */
+.divA
+{
+	padding-top:25%;
+}
+
+.dugmeta
+{
+	width:100%;
+	height:100%;
+	opacity:0;
+	color: #607D8B;
+    font: 400 17px/30px "Roboto",sans-serif;
+}
+
+.dugmeta:hover
+{
+	opacity:0.6;
+	border:none;
+	transition:0.5s;
+	cursor: pointer;
+}
+
+.col:first-child 
+{
+	margin-left: 0; 
+}
+
+.grupa:before, .grupa:after 
+{ 
+	content:""; 
+	display:table; 
+}
+
+.grupa:after 
+{
+	clear:both;
+}
+
+.span1
+{
+	width: 28%; 
+}
 </style>

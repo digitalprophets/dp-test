@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Shop from '../components/Shop.vue'
+import Products from '../components/Products.vue'
 import VueRouter from 'vue-router'
 import Main from '../components/Main.vue'
 import Register from '../components/Register.vue'
@@ -15,7 +15,7 @@ export default new VueRouter({
       path: '/', component: Main
     },
     {
-      path: '/shop', name: 'shop', component: Shop 
+      path: '/products', name: 'products', component: Products 
       // path: '/shop:user:pass', name: 'shop', component: Shop // kad se salju parametri u url
     },
     {

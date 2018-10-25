@@ -76,13 +76,13 @@ export default {
 			// 	this.primio = response.data;
 			// 	if (this.primio.odgovor == "ok"){
 			// 		// nek router prenese parametre
-			// 		this.$router.push({ name: 'shop', params: { username: this.username, password: this.password }})
+			// 		this.$router.push({ name: 'products', params: { username: this.username, password: this.password }})
 			// 	}
 			// 	else this.$router.push('/error');
 			// } catch (err) {
 			//  	console.log(err);
 			// }
-			this.$router.push({ name: 'shop', params: { username: this.username, password: this.password }})
+			this.$router.push({ name: 'products', params: { username: this.username, password: this.password }})
 			// const formData = new FormData();
 			// formData.append('korisnickoime', this.username); // "korisnickoime" : "staTiProsledim"
 			// formData.append('sifra', this.password); // analogno
