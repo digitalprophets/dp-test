@@ -36,6 +36,7 @@ https://www.youtube.com/watch?v=Fa4cRMaTDUI // pt.1 podesavanje Vue i Express-a 
 https://www.youtube.com/watch?v=xZMwg5z5VGk // pt.2 sequelize (komunikacija s bazom{SQL}) + Vuetify (css biblioteka, ja je ne bih koristio)
 https://www.youtube.com/watch?v=H6hM_5ilhqw // pt.3 Vuetify (header, buttons..) + slanje username/password{BCRYPT HASH} bazi i provera + Vuex { za globalne promenljive }
 https://www.youtube.com/watch?v=1NSPAz1Qc-I // pt.4 dekomponovanje, slots {jedna komponenta se koristi na vise stranica}, dynamic load podataka sa backenda, upis u bazu
+https://www.youtube.com/watch?v=3zw5LgKDMhg // pt.5 ekstrahovanje jednog objekta iz baze, YouTube embed 
 
 ---------- SUGGESTION BOX ------------
 
