@@ -17,7 +17,7 @@ const register = require('./routes/register');
 app.use(express.json());
 
 // odgovori na svaki zahtev na adresu /buy/...
-// ce biti definisani u ./models/buy.js
+// ce biti definisani u ./routes/buy.js
 app.use('/buy', buy);
 app.use('/login', login);
 app.use('/me', me);
