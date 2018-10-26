@@ -37,6 +37,7 @@ https://www.youtube.com/watch?v=xZMwg5z5VGk // pt.2 sequelize (komunikacija s ba
 https://www.youtube.com/watch?v=H6hM_5ilhqw // pt.3 Vuetify (header, buttons..) + slanje username/password{BCRYPT HASH} bazi i provera + Vuex { za globalne promenljive }
 https://www.youtube.com/watch?v=1NSPAz1Qc-I // pt.4 dekomponovanje, slots {jedna komponenta se koristi na vise stranica}, dynamic load podataka sa backenda, upis u bazu
 https://www.youtube.com/watch?v=3zw5LgKDMhg // pt.5 ekstrahovanje jednog objekta iz baze, YouTube embed 
+https://www.youtube.com/watch?v=ipYlztBRpp0 // pt.6 definisanje globalne komponente u Vue, search fazon za Vue
 
 ---------- SUGGESTION BOX ------------
 
