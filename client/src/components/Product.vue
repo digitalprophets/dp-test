@@ -14,20 +14,23 @@
 		</header>
 
 		<div id="container">
-		
-			<div id="divSlikaOglasa">
-				<img id="slikaOglasa" src = "../slike/proba.jpg"/>
+			<div id="image_containter">
+				<img id="product_image" src = "../slike/proba.jpg"/>
 			</div>
-		
-			<div id = "divNaslovOglasa">
-				<div id = "naslovOglasa">Veoma povoljna bicikla</div>
-				<div id = "opisOglasa">nije kradena ide brze nego metak ide zamena moguca kontakt sms</div>
-				<div id = "cenaOglasa">20 RSD</div>
+
+			<div id = "product_data">
+				<div id = "product_name">Veoma povoljna bicikla</div>
+				<div id = "product_description">
+					&emsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+					ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+					laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+					velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+					sunt in culpa qui officia deserunt mollit anim id est laborum
+				</div>
+				<div id = "product_price">20 RSD</div>
 				
 				<!-- DUGME NE SME DA IME TYPE DUGME DA BI RADILA FORMA.. -->
-				<div id="divKupiDugme">
-                    <button id="kupiDugme">KUPI</button>
-                </div>
+                <button id="purchase_button">PURCHASE</button>
 			</div>
 
 		</div>
@@ -40,7 +43,7 @@ export default {}
 
 <style scoped>
 
-.product{
+.product {
 	height: 100%;
 	width: 100%;
 	margin: 0;
@@ -48,7 +51,7 @@ export default {}
     grid-template-rows: 50px auto;
     grid-template-areas:
 		"header"
-    	"main_content";
+    	"container";
 	color: white;
 }
 
@@ -103,88 +106,139 @@ header {
 }
 
 #container {
-    margin-top: 40px;
+    margin-top: 100px;
     width:100%;	
     color:white;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-auto-rows: 500px;
 }
 
-#divSlikaOglasa {
-	margin-top:6%;
-	width:50%;
-	height:100%;
-	float:left;
+#image_containter {
+	height: 100%;
+	width: 100%;
+	display: grid;
 }
 
-#slikaOglasa {	
-	width:70%;
+#product_image {	
+	width:80%;
 	background:transparent;   
 	padding:6px;
     border:1px solid #999999;
-	margin-left:21%;
+	align-self: center;
+	justify-self: center;
 }
 
-#divNaslovOglasa {
-	margin-top:6%;	
-	width:50%;
+#product_data {
 	float:left;
 	height:100%;	
+	width: 100%;
 	font-family: 'Lato', sans-serif;
+	align-self: center;
+	justify-self: center;
+	display: grid;
+	grid-template-rows: 10% 65% 10% 15%
 }
 
-#naslovOglasa {
-	font-size: 26px;
-	text-align:center;
-	padding-right:20%;
+#product_name {
+	font-size: 30px;
+	align-self: center;
+	justify-self: center;
 }
 
-#opisOglasa {
-	padding-top:10%;
-	padding-left:5%;
-	padding-right:20%;
+#product_description {
+	padding:10%;
 	word-wrap: break-word;
 	font-size: 16px;
+	align-self: top;
+	justify-self: center;
 }
 
-#cenaOglasa {
-	padding-top:20%;
-	padding-right:20%;
-	text-align:center;
+#product_price {
 	word-wrap: break-word;
 	font-size: 16px;
 	font-weight:bold;
+	justify-self: center;
+	align-self: top;
 }
 
-#divKupiDugme {
-	padding-top:5%;
-	padding-right:20%;	
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-#kupiDugme {
+#purchase_button {
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 	float:left;
 	width: 230px;
+	height: 60px;
 	border: #fbfbfb solid 4px;
 	cursor:pointer;
-	background: #004276; /* For browsers that do not support gradients  */
-    background: -webkit-radial-gradient(darkred, black); /* Safari 5.1 to 6.0 */ 
-    background: -o-radial-gradient(darkred, black); /* For Opera 11.6 to 12.0 */ 
-    background: -moz-radial-gradient(darkred, black); /* For Firefox 3.6 to 15 */ 
-    background: radial-gradient(darkred, black); /* Standard syntax */ 
+	background: darkred;
+    background: -webkit-radial-gradient(darkred, black);
+    background: -o-radial-gradient(darkred, black);
+    background: -moz-radial-gradient(darkred, black);
+    background: radial-gradient(darkred, black);
     background-repeat: repeat; 
 	color:white;
-	font-size:20px;
-	padding-top:15px;
-	padding-bottom:15px;
+	font-size: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	transition: all 0.3s;
-	margin-top:-4px;
-	font-weight:600;	
+	font-weight: 600;	
+	align-self:center;
+	justify-self: center;
 }
 
-#kupiDugme:hover {
+#purchase_button:hover {
 	background-color: rgba(0,0,0,0);
 	color: #0d0e0f;
+}
+
+@media all and (max-width: 500px) {
+	#container {
+		width:100%;	
+		height: 100%;
+		margin-top: 50px;
+		grid-template-columns: auto;
+		grid-auto-rows: 50%;
+	}
+
+	#image_containter {
+		height: 100%;
+		object-fit: contain;
+		width: 100%;
+	}
+
+	#product_image {	
+		align-self: center;
+		justify-self: center;
+		height: auto;
+		width: 80%;
+		object-fit: contain;
+	}
+
+	#product_data {
+		grid-template-rows: 10% 65% 10% 15%
+	}
+
+	#product_name {
+		font-size: 10px;
+	}
+
+	#product_description {
+		padding:5%;
+		font-size: 8px;
+	}
+
+	#product_price {
+		font-size: 8px;
+		font-weight:bold;
+	}
+
+	#purchase_button {
+		width: 115px;
+		height: 30px;
+		border: #fbfbfb solid 2px;
+		font-size: 10px;
+		padding-top: 7px;
+		padding-bottom: 7px;
+		font-weight: 300;	
+	}
 }
 </style>
