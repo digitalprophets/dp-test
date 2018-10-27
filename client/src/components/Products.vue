@@ -151,13 +151,6 @@ button {
 	font-weight:700;
 }
 
-#porukaZaKupca {
-	text-align: center;
-	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-	font-size: 20px;
-	color: red;
-}
-
 #korisnik {
 	/* span mora da ima inline block inace ne moz se animira! */
 	display: inline-block;
@@ -172,6 +165,7 @@ button {
 }
 
 @media all and (max-width: 1300px) {
+
 	#product_section {
 		grid-auto-rows: 300px;
 		grid-gap: 3px;
@@ -184,6 +178,11 @@ button {
 }
 
 @media all and (max-width: 900px) {
+
+	#main_content_text h1 {
+		font-size: 16px;
+	}
+
 	#product_section {
 		grid-auto-rows: 150px;
 		grid-gap: 3px;
@@ -192,6 +191,61 @@ button {
 	.product {
 		height: 90px;
 		width: 120px;
+	}
+}
+
+@media all and (max-width: 500px) {
+
+
+	#main_content_text h1 {
+		align-self: center;
+		justify-self: center;
+		font-size: 14px;
+		width:60%;
+		line-break: auto;
+		text-align: center;
+	}
+
+	#product_section {
+		width: 80%;
+		margin-top: -10%;
+		align-self: center;
+		justify-self: center;
+		display: grid; 
+		grid-template-columns: auto;
+		grid-auto-rows: 350px;
+		grid-gap: 5px;
+	}
+
+	.product {
+		align-self: center;
+		justify-self: center;
+		height: 200px;
+		width: 100%;
+	}
+
+	.product img {
+		width: 100%;
+	}
+
+	.button_container {
+		display: grid;
+	}
+
+	button {
+		justify-self: center;
+		font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+		float:left;
+		border: #fbfbfb solid 2px;
+		cursor:pointer;
+		background: #0d0e0f;
+		background: radial-gradient(#0d0e0f, black); 
+		background-repeat: repeat; 
+		color:white;
+		font-size:10px;
+		padding: 3px;
+		transition: all 0.3s;
+		font-weight:700;
 	}
 }
 

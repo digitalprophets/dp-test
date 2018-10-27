@@ -202,9 +202,9 @@
         grid-auto-rows: 25px;
     }
 
-    .header_content {
-        /* font-size: 8px; mozda? */
-    }
+    /* .header_content {
+            font-size: 8px; mozda? 
+    } */
 
     #header_content2, #header_content3, #header_content4, #header_content5, #header_content6{
         display: none;
