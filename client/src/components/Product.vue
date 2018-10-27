@@ -1,17 +1,6 @@
 <template>
 	<div class="product page">
-        <!-- TODO ANDRIJA da ne zaboravim da napravim header a i mozda jos nesto kao zasebnu komponentu -->
-        <header>
-			<div class="sadrzaj"> 
-				sadrzaj.. 
-			</div>
-			<div class="sadrzaj"> 
-				sranje.. 
-			</div>
-			<div class="sadrzaj"> 
-				govna.. 
-			</div>
-		</header>
+		<Header />
 
 		<div id="container">
 			<div id="image_containter">
@@ -38,7 +27,13 @@
 </template>
 
 <script>
-export default {}
+import Header from './Header.vue'
+
+export default {
+	components: {
+			Header
+		}
+	}
 </script>
 
 <style scoped>
@@ -47,63 +42,9 @@ export default {}
 	height: 100%;
 	width: 100%;
 	margin: 0;
-    display: grid;
-    grid-template-rows: 50px auto;
-    grid-template-areas:
-		"header"
-    	"container";
 	color: white;
 }
 
-header {
-    background-color:darkred;
-    padding:10px;
-	border: 2px solid white;
-	font-size: 2rem;
-	display: grid;
-	grid-template-columns: repeat(3, auto);
-}
-
-.sadrzaj {
-	font-weight: bold;
-	-webkit-animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-	        animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-			animation-delay: 1s;
-      
-	align-self: center;
-	justify-self: center;
-}
-
-.sadrzaj:hover {
-	cursor: pointer;
-}
-
-@-webkit-keyframes tracking-in-contract {
-  0% {
-    letter-spacing: 1em;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    letter-spacing: normal;
-    opacity: 1;
-  }
-}
-@keyframes tracking-in-contract {
-  0% {
-    letter-spacing: 1em;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    letter-spacing: normal;
-    opacity: 1;
-  }
-}
 
 #container {
     margin-top: 100px;

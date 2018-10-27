@@ -15,7 +15,7 @@
 				<div v-for="n in 5" v-bind:key="n" class="product">
 					<img src="../slike/proba.jpg">
 					<div class="button_container">
-						<button>KUPI ME ZA DVE-TRI LAZI</button>
+						<button v-on:click="goToProduct">KUPI ME ZA DVE-TRI LAZI</button>
 					</div>
 				</div>
 			</div>
@@ -75,6 +75,11 @@ import Header from './Header.vue'
 			// TODO ANDRIJA ovde uhvati proizvode sa backenda
 			// this.products = (await ProductService.getAllProducts()).data
 			// console.log('products', this.products)
+		},
+		methods: {
+			goToProduct() {
+				this.$router.push({ name: 'product' })
+			}
 		}
 	}
 
