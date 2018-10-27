@@ -45,6 +45,11 @@ Segmenti koda kojima je potrebna paznja nekog od clanova tima oznacavati sa: "TO
 
 Firefox > Chrome, meni se mnogo brze loaduje (mozda je i subjektivan stav jer ja uvek koristim firefox) // Andrija
 
+search da vraca kao recommended listu, po nekom redsledu
+search history
+
+ocenjivanje prodavaca
+
 
 ---------- IZMENE OPCIJA ------------
 
