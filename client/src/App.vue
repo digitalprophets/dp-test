@@ -27,7 +27,7 @@ export default {}
 html {
     height: 100%;
 	width: 100%;
-    font-size:62.5%;
+    font-size:14px;
   	overflow: auto;
 }
 
@@ -38,7 +38,6 @@ body {
 	color:#444;
 	margin: 0px;
 	background-color:grey;
-
 }
 
 #app { 
@@ -60,7 +59,6 @@ body {
   	overflow: auto;
 	/* TODO ANDRIJA samo da kazem da sam maestro ovo sprecava da animacija headera razvuce po x osi idemo */
 	overflow-x: hidden;
-
 }
 
 .page {

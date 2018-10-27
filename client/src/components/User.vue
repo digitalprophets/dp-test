@@ -96,6 +96,7 @@ import Header from './Header.vue'
 	/* TODO ANDRIJA dakle gospodar weba je resio problem reskaliranja idemoooooo */
 	width: 30vw;
 	height: 30vw;
+	margin-right: 10%;
 }
 
 #user_avatar {
