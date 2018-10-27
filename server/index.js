@@ -1,29 +1,25 @@
 const express = require('express');
 const app = express();
 
-//routes
-const buy = require('./routes/buy');
-const login = require('./routes/login');
-const me = require('./routes/me');
-const products = require('./routes/products');
-const register = require('./routes/register');
+require('express-async-errors');
 
-// TODO Veljko
-// konekcija ka bazi, cak mozda bolje da stoji u models folderu
-// dogovoricemo se
+// config
+require('./startup/config')();
+// set up all routes
+require('./startup/routes')(app);
+// connection to database
+require('./startup/db')();
 
 // parsira zahtev koji ima body u json formatu
 // i rezultat smesta u req.body
 app.use(express.json());
 
-// odgovori na svaki zahtev na adresu /buy/...
-// ce biti definisani u ./routes/buy.js
-app.use('/buy', buy);
-app.use('/login', login);
-app.use('/me', me);
-app.use('/products', products);
-app.use('/register', register);
+process.on('unhandledRejection', (ex) => {
+    throw ex;
+  })
 
-app.listen(8081, () => {
-    console.log('Server listening on port 8081');
+
+const port = process.env.port || 8081;
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
 });
