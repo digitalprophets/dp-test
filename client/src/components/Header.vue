@@ -13,7 +13,7 @@
             <div class="header_content" id="header_content4">
                 {{ header_content4 }}
 		    </div>
-            <div class="header_content" id="header_content5">
+            <div v-on:click="openUser" class="header_content" id="header_content5">
                 {{ header_content5 }}
 		    </div>
             <div class="header_content" id="header_content6">
@@ -49,6 +49,11 @@
             header_content6: {
                 type: String,
                 default: 'Logout'
+            }
+        },
+        methods: {
+            openUser() {
+                this.$router.push({ name: 'user'})
             }
         }
         }
@@ -87,6 +92,10 @@
 
 #header_content5 {
     text-align: end;
+}
+
+#header_content5:hover {
+    cursor: pointer;
 }
 
 @-webkit-keyframes puff-in-center {

@@ -4,6 +4,7 @@ import Main from '../components/Main.vue'
 import Register from '../components/Register.vue'
 import Products from '../components/Products.vue'
 import Product from '../components/Product.vue'
+import User from '../components/User.vue'
 
 import Header from '../components/Header.vue'
 
@@ -29,6 +30,10 @@ export default new VueRouter({
     },
     {
       path: '/testing', name: 'header', component: Header
+      // , props: { header_content1: 'govna' } TODO ANDRIJA msm sta reci ovo jos samo da dodam
+    },
+    {
+      path: '/user', name: 'user', component: User
       // , props: { header_content1: 'govna' } TODO ANDRIJA msm sta reci ovo jos samo da dodam
     }
   ]
