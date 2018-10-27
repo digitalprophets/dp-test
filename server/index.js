@@ -3,6 +3,10 @@ const app = express();
 
 require('express-async-errors');
 
+// parsira zahtev koji ima body u json formatu
+// i rezultat smesta u req.body
+app.use(express.json());
+
 // config
 require('./startup/config')();
 // set up all routes
@@ -10,9 +14,7 @@ require('./startup/routes')(app);
 // connection to database
 require('./startup/db')();
 
-// parsira zahtev koji ima body u json formatu
-// i rezultat smesta u req.body
-app.use(express.json());
+
 
 process.on('unhandledRejection', (ex) => {
     throw ex;

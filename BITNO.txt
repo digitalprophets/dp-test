@@ -46,9 +46,11 @@ Segmenti koda kojima je potrebna paznja nekog od clanova tima oznacavati sa: "TO
 Firefox > Chrome, meni se mnogo brze loaduje (mozda je i subjektivan stav jer ja uvek koristim firefox) // Andrija
 
 search da vraca kao recommended listu, po nekom redsledu
-search history
+search history // Tacic i Daca
 
-ocenjivanje prodavaca
+ocenjivanje prodavaca // Tacic
+
+u istoriji kupovine da stavimo link do prodavca, to bi eventualno povlacilo jos jedan end_point // Daca
 
 
 ---------- IZMENE OPCIJA ------------
