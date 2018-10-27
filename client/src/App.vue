@@ -38,14 +38,15 @@ body {
 	color:#444;
 	margin: 0px;
 	background-color:grey;
+
 }
 
 #app { 
-    background: #0d0e0f; /* For browsers that do not support gradients  */
-	background: -webkit-radial-gradient(#0d0e0f, black); /* Safari 5.1 to 6.0 */ 
-	background: -o-radial-gradient(#0d0e0f, black); /* For Opera 11.6 to 12.0 */ 
-	background: -moz-radial-gradient(#0d0e0f, black); /* For Firefox 3.6 to 15 */ 
-	background: radial-gradient(#0d0e0f, black); /* Standard syntax */ 
+    background: #0d0e0f;
+	background: -webkit-radial-gradient(#0d0e0f, black);
+	background: -o-radial-gradient(#0d0e0f, black);
+	background: -moz-radial-gradient(#0d0e0f, black);
+	background: radial-gradient(#0d0e0f, black);
 	background-repeat: repeat; 
 	/* text-align: center;  */
     width: 100%; 
@@ -57,8 +58,10 @@ body {
     -moz-box-sizing: border-box; 
     box-sizing: border-box; 
   	overflow: auto;
-}
+	/* TODO ANDRIJA samo da kazem da sam maestro ovo sprecava da animacija headera razvuce po x osi idemo */
+	overflow-x: hidden;
 
+}
 
 .page {
 	position: absolute;

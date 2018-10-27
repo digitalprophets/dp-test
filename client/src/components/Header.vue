@@ -1,6 +1,6 @@
 <template>
 	<div class="header">	
-        <div id="header"> 
+        <div id="header_component"> 
             <div class="header_content" id="header_content1">
                 {{ header_content1 }}
 		    </div>
@@ -25,7 +25,6 @@
 
 <script>
 	export default {
-    	name: 'register',
 	    props: {
             header_content1: {
                 type: String,
@@ -57,7 +56,7 @@
 
 <style scoped>
 
-#header {
+#header_component {
     background-color:darkred;
     padding:10px;
 	border: 2px solid white;
@@ -76,7 +75,10 @@
     width: 100%;
     align-self: center;
     justify-self: center;
-    text-align: center;
+    text-align: center;	
+	-webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	animation-delay: 1s;
 }
 
 #header_content1{
@@ -85,6 +87,39 @@
 
 #header_content5 {
     text-align: end;
+}
+
+@-webkit-keyframes puff-in-center {
+  0% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes puff-in-center {
+  0% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
 }
 
 </style>

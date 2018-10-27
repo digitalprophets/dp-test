@@ -1,16 +1,6 @@
 <template>
 	<div class="products page">	
-		<header>
-			<div class="sadrzaj"> 
-				sadrzaj.. 
-			</div>
-			<div class="sadrzaj"> 
-				sranje.. 
-			</div>
-			<div class="sadrzaj"> 
-				govna.. 
-			</div>
-		</header>
+		<Header />
 
     	<div id="main_content">
 			<div id="main_content_text">
@@ -35,6 +25,9 @@
 
 <script>
 import ProductService from '../services/ProductService'
+
+// TODO ANDRIJA globalno definisati header? nzm jos kako
+import Header from './Header.vue'
 
 	export default {
     	name: 'products',
@@ -71,6 +64,9 @@ import ProductService from '../services/ProductService'
 				]
 			}
 		},
+		components: {
+			Header
+		},
    		created() {
        	    this.user = this.$route.params.username;
            	this.pass = this.$route.params.password;
@@ -80,18 +76,8 @@ import ProductService from '../services/ProductService'
 			// this.products = (await ProductService.getAllProducts()).data
 			// console.log('products', this.products)
 		}
-		}
-    // OVO SAM KORISTIO KAO  <shopping-page :user=user :pass=pass></shopping-page> KAD IZ DRUGE STR POZIVAM OVU PA KAO
-    // props: {
-    //   user: {
-    //     type: String,
-    //     default: 'Andrija'
-    //   },
-    //   pass: {
-    //     type: String,
-    //     default: 'Gospodar'
-    //   }
-    // }
+	}
+
 </script>
 
 <style scoped>
@@ -100,62 +86,7 @@ import ProductService from '../services/ProductService'
 	height: 100%;
 	width: 100%;
 	margin: 0;
-    display: grid;
-    grid-template-rows: 50px auto;
-    grid-template-areas:
-		"header"
-    	"main_content";
 	color: white;
-}
-
-header {
-    background-color:darkred;
-    padding:10px;
-	border: 2px solid white;
-	font-size: 2rem;
-	display: grid;
-	grid-template-columns: repeat(3, auto);
-}
-
-.sadrzaj {
-	font-weight: bold;
-	-webkit-animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-	        animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-			animation-delay: 1s;
-      
-	align-self: center;
-	justify-self: center;
-}
-
-.sadrzaj:hover {
-	cursor: pointer;
-}
-
-@-webkit-keyframes tracking-in-contract {
-  0% {
-    letter-spacing: 1em;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    letter-spacing: normal;
-    opacity: 1;
-  }
-}
-@keyframes tracking-in-contract {
-  0% {
-    letter-spacing: 1em;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    letter-spacing: normal;
-    opacity: 1;
-  }
 }
 
 #main_content {
