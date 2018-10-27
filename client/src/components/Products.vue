@@ -20,14 +20,12 @@
 				</h1>
 			</div>
 			
-			<div id="porukaZaKupca"></div>
-			
 			<div id ="product_section">
 				<!-- TODO ANDRIJA eslint smara pa sam stavio ovaj key iako nzm cemu sluzi -->
 				<div v-for="n in 5" v-bind:key="n" class="product">
 					<img src="../slike/proba.jpg">
 					<div class="button_container">
-						<button v-on:click="kupovina">KUPI ME ZA DVE-TRI LAZI</button>
+						<button>KUPI ME ZA DVE-TRI LAZI</button>
 					</div>
 				</div>
 			</div>
@@ -81,10 +79,6 @@ import ProductService from '../services/ProductService'
 			// TODO ANDRIJA ovde uhvati proizvode sa backenda
 			// this.products = (await ProductService.getAllProducts()).data
 			// console.log('products', this.products)
-		},
-		methods: {
-		kupovina(){
-			document.getElementById('porukaZaKupca').innerHTML="pocni tamo gde je ona stala"
 		}
 		}
     // OVO SAM KORISTIO KAO  <shopping-page :user=user :pass=pass></shopping-page> KAD IZ DRUGE STR POZIVAM OVU PA KAO
@@ -98,7 +92,6 @@ import ProductService from '../services/ProductService'
     //     default: 'Gospodar'
     //   }
     // }
-  }
 </script>
 
 <style scoped>
@@ -169,7 +162,7 @@ header {
 	width: 100%;
 	height: 100%;
 	display: grid;
-	grid-template-rows: 20% auto;
+	grid-template-rows: 15% auto;
 }
 
 #main_content_text {
@@ -183,7 +176,7 @@ header {
 
 #product_section {
 	width: 80%;
-	align-self: center;
+	align-self: top;
 	justify-self: center;
 	display: grid; 
 	grid-template-columns: auto auto auto;
@@ -212,8 +205,8 @@ button {
 	float:left;
 	border: #fbfbfb solid 2px;
 	cursor:pointer;
-	background: #0d0e0f; /* For browsers that do not support gradients  */
-    background: radial-gradient(#0d0e0f, black); /* Standard syntax */ 
+	background: #0d0e0f;
+    background: radial-gradient(#0d0e0f, black); 
     background-repeat: repeat; 
 	color:white;
 	font-size:10px;
@@ -236,42 +229,35 @@ button {
 	        animation: vibrate-3 0.5s linear infinite both;
 }
 
-
 #lozinka {
 	display: inline-block;
 	-webkit-animation: vibrate-3 0.5s linear infinite reverse both;
 	        animation: vibrate-3 0.5s linear infinite reverse both;
 }
 
-@media all and (max-width: 1300px) /* kad da se ispravlja */
-{
-	
-#product_section {
-	grid-auto-rows: 300px;
-	grid-gap: 3px;
+@media all and (max-width: 1300px) {
+	#product_section {
+		grid-auto-rows: 300px;
+		grid-gap: 3px;
+	}
+
+	.product {
+		height: 150px;
+		width: 250px;
+	}
 }
 
-.product {
-	height: 150px;
-	width: 250px;
-}
-}
+@media all and (max-width: 900px) {
+	#product_section {
+		grid-auto-rows: 150px;
+		grid-gap: 3px;
+	}
 
-@media all and (max-width: 900px) /* kad da se ispravlja */
-{
-	
-#product_section {
-	grid-auto-rows: 150px;
-	grid-gap: 3px;
+	.product {
+		height: 90px;
+		width: 120px;
+	}
 }
-
-.product {
-	height: 90px;
-	width: 120px;
-}
-}
-
-
 
 @-webkit-keyframes vibrate-3 {
   0% {
@@ -319,6 +305,7 @@ button {
             transform: translate(0);
   }
 }
+
 @keyframes vibrate-3 {
   0% {
     -webkit-transform: translate(0);
