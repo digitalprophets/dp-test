@@ -5,6 +5,8 @@ import Register from '../components/Register.vue'
 import Products from '../components/Products.vue'
 import Product from '../components/Product.vue'
 
+import Header from '../components/Header.vue'
+
 Vue.use(VueRouter)
 // majke mu ga nabijem routave
 // TODO VELJKO, ovde definisemo sve putanje, logicno..
@@ -24,6 +26,10 @@ export default new VueRouter({
     },
     {
       path: '/product', name: 'product', component: Product 
+    },
+    {
+      path: '/testing', name: 'header', component: Header
+      // , props: { header_content1: 'govna' } TODO ANDRIJA msm sta reci ovo jos samo da dodam
     }
   ]
 })
