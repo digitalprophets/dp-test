@@ -119,7 +119,7 @@
     display: grid;
     width: 100%;
     height: 100%;
-    grid-template-rows: 25% auto;
+    grid-template-rows: 20% auto;
 }
 
 #message {
@@ -128,6 +128,7 @@
     align-self: center;
     justify-self: center;
     text-align: center;
+    font-size: 12px;
 }
 
 form {
@@ -210,6 +211,51 @@ form {
     letter-spacing: normal;
     opacity: 1;
   }
+}
+
+@media all and (max-width: 600px) {
+    .register {
+        grid-template-rows: 30px auto;
+    }
+
+    .header {
+        padding:7px;
+        border: 1.2px solid white;
+        font-size: 1.2rem;
+    }
+
+    #message {
+        padding: 30px;
+        font-size: 6px;
+    }
+
+    form {
+        padding:15px;
+        width: 250px;
+        height: 210px;
+        border-radius: 7px;
+    }
+
+    .feedback-input {
+        font-weight:300;
+        font-size: 12px;
+        line-height: 18px;
+        padding: 8px 8px 8px 34px;
+        margin-bottom: 7px;
+        border: 1.8px solid rgba(0,0,0,0);
+    }
+
+    .feedback-input:focus {
+        border: 1.8px solid darkred;
+    }
+
+    .button {
+        border: #fbfbfb solid 3.2px;
+        font-size:12px;
+        padding-top:10px;
+        padding-bottom:10px;
+        font-weight:400;
+    }
 }
 
 </style>
