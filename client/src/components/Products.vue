@@ -87,7 +87,7 @@ import Header from './Header.vue'
 
 <style scoped>
 
-.products{
+.products {
 	height: 100%;
 	width: 100%;
 	margin: 0;
@@ -108,6 +108,8 @@ import Header from './Header.vue'
 #main_content_text h1 {
 	align-self: center;
 	justify-self: center;
+	text-align: center;
+	font-size: 22px;
 }
 
 #product_section {
@@ -116,15 +118,15 @@ import Header from './Header.vue'
 	justify-self: center;
 	display: grid; 
 	grid-template-columns: auto auto auto;
-	grid-auto-rows: 300px;
-	grid-gap: 10px;
+	grid-auto-rows: 400px;
+	grid-gap: 20px;
 }
 
 .product {
 	align-self: center;
 	justify-self: center;
-	height: 250px;
-	width: 350px;
+	height: 100%;
+	width: 100%;
 }
 
 .product img {
@@ -138,17 +140,17 @@ import Header from './Header.vue'
 button {
 	justify-self: center;
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-	float:left;
+	float: left;
 	border: #fbfbfb solid 2px;
-	cursor:pointer;
+	cursor: pointer;
 	background: #0d0e0f;
     background: radial-gradient(#0d0e0f, black); 
     background-repeat: repeat; 
 	color:white;
-	font-size:10px;
+	font-size: 10px;
 	padding: 3px;
 	transition: all 0.3s;
-	font-weight:700;
+	font-weight: 700;
 }
 
 #korisnik {
@@ -166,15 +168,15 @@ button {
 
 @media all and (max-width: 1300px) {
 
-	#product_section {
-		grid-auto-rows: 300px;
-		grid-gap: 3px;
+	#main_content_text h1 {
+		font-size: 18px;
 	}
 
-	.product {
-		height: 150px;
-		width: 250px;
+	#product_section {
+		grid-auto-rows: 300px;
+		grid-gap: 5px;
 	}
+
 }
 
 @media all and (max-width: 900px) {
@@ -184,21 +186,14 @@ button {
 	}
 
 	#product_section {
-		grid-auto-rows: 150px;
-		grid-gap: 3px;
+		grid-template-columns: auto auto;
 	}
-
-	.product {
-		height: 90px;
-		width: 120px;
-	}
+	
 }
 
 @media all and (max-width: 500px) {
 
-
 	#main_content_text h1 {
-		align-self: center;
 		justify-self: center;
 		font-size: 14px;
 		width:60%;
@@ -207,46 +202,19 @@ button {
 	}
 
 	#product_section {
-		width: 80%;
-		margin-top: -10%;
-		align-self: center;
-		justify-self: center;
-		display: grid; 
+		margin-top: 6%;
 		grid-template-columns: auto;
 		grid-auto-rows: 350px;
-		grid-gap: 5px;
 	}
 
-	.product {
-		align-self: center;
-		justify-self: center;
-		height: 200px;
-		width: 100%;
-	}
+}
 
-	.product img {
-		width: 100%;
-	}
+@media all and (max-width: 400px) {
 
-	.button_container {
-		display: grid;
+	#product_section {
+		grid-auto-rows: 260px;
 	}
-
-	button {
-		justify-self: center;
-		font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-		float:left;
-		border: #fbfbfb solid 2px;
-		cursor:pointer;
-		background: #0d0e0f;
-		background: radial-gradient(#0d0e0f, black); 
-		background-repeat: repeat; 
-		color:white;
-		font-size:10px;
-		padding: 3px;
-		transition: all 0.3s;
-		font-weight:700;
-	}
+	
 }
 
 @-webkit-keyframes vibrate-3 {
