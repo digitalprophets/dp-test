@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 const products = [
     {      
         name: 'product1',
@@ -40,6 +41,62 @@ router.get('/:id', (req, res) => {
     // if found return product with that id
     res.send(products[id]);
 
+});
+
+router.get('', (req, res) => {
+    //connect and find in database
+
+    if(products.length === 0)
+        return res.status(404).send("Products not found");
+    
+    // if found return array of products
+    res.send(products);
+})
+
+router.post('', (req, res) => { 
+    const product = {
+        name: req.body.name,
+        price: req.body.price,
+        category: req.body.category,
+        description: req.body.description,
+        //image: req.body.image
+    }
+    products.push(product);
+    res.send(product);
+});
+
+router.put('/:id', (req, res) => {
+    //Find product with id
+    const product = products[req.params.id];
+    //If not found status 404
+    if(!product) 
+        return res.status(404).send(`Product with ID:${req.params.id} was not found.`);
+
+    //Validate 
+    
+
+    //Change parameters if no errors
+    product.name = req.body.name;
+    product.price = req.body.price;
+    product.category = req.body.category;
+    product.description = req.body.description;
+    res.send(product);
+});
+
+router.delete('/:id', (req, res) => {
+    //Find product with id
+    const product = products[req.params.id];
+    
+    //If not found status 404
+    if(!product) 
+        return res.status(404).send(`Product with ID:${req.params.id} was not found.`);
+    
+    //Delete
+    const index = products.indexOf(product);
+    products.splice(index, 1);
+
+    //Response
+    res.send(product);
 });
 
 module.exports = router;
