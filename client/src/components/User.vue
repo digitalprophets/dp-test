@@ -5,7 +5,7 @@
 		<div id="container">
 			
 			<div id="user_data">
-				<div id="user_name">User Userovic</div>
+				<div id="user_name">Novi Korisnik</div>
 				<div id="user_total_purchases">Total purchases: 20</div>
 				<div id="user_total_sales">Total sales: 10</div>
 				<div id="user_total_active_ads">Active ads: 2</div>
@@ -72,21 +72,17 @@ import Header from './Header.vue'
 	width: 100%;
 	padding-top: 5%;
 	padding-bottom: 10%;
-
 	color: white;
 	font-family: 'Lato', sans-serif;
-	font-size: 1vw;
-
+	font-size: 1vw;	
 	display: grid;
 	grid-template-rows: 20% 3% 3% 3% auto auto;
-
 }
 
 #user_name {
 	align-self: center;
 	justify-self: center;
-
-	font-weight: 400;
+	font-weight: 600;
 	font-size: 3vw;
 }
 
@@ -114,11 +110,11 @@ form {
 }
 
 #form_name {
-	font-size: 1.5vw;
+	font-size: 1.7vw;
 }
 
 label {
-	font-size: 0.7vw;
+	font-size: 1vw;
 }
 
 input {
@@ -128,7 +124,7 @@ input {
 	margin: 20px 20px 20px 50px;
 	border: none;
 	border-bottom: 1px solid white;	
-	width: 30%;
+	width: 40%;
 	font-size: 0.8vw;
 }
 
@@ -146,8 +142,8 @@ button {
 	font-size:15px;
 	padding-top:12px;
 	padding-bottom:12px;
-	margin-top: 2%;
-	margin-left: 9%;
+	margin-top: 3%;
+	margin-left: 15%;
 	transition: all 0.3s;
 	font-weight:700;
 }
