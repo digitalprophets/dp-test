@@ -20,19 +20,11 @@ nodemon index.js // nodemon je active, a moze i samo "node index.js" ali to nece
 
 ---------- BAZA------------
 
-npm install --save sequelize
-
-npm install --save mysql2
-
-Workbench ---> https://dev.mysql.com/downloads/workbench/
-
-Wampserver
-
 Potreban samo mysql server baze podataka da bude instaliran na sistemu (WAMP)
-I najnormalnije npm i u folderu server
+I najnormalnije 'npm i' u folderu server
 Za sad je moguce povezati se sa bazom samo ako je napravljena rucno
-(za sad aplikacija ne ume da napravi bazu, ali tabele u praznoj bazi ume da napravi)
-Zbog toga je potrebno da postoji baza pod imenom 'dptest'
+(aplikacija ne ume da napravi bazu, ali tabele u praznoj bazi ume),
+zbog toga je potrebno da postoji baza pod imenom 'dptest'
 
 ---------- GIT ------------
 
@@ -61,7 +53,7 @@ Segmenti koda kojima je potrebna paznja nekog od clanova tima oznacavati sa: "TO
 
 Firefox > Chrome, meni se mnogo brze loaduje (mozda je i subjektivan stav jer ja uvek koristim firefox) // Andrija
 
-search da vraca kao recommended listu, po nekom redsledu
+search da vraca kao recommended listu, po nekom redosledu
 search history // Tacic i Daca
 
 ocenjivanje prodavaca // Tacic

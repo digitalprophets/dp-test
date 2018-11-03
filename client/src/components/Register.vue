@@ -13,7 +13,8 @@
             </div>
 
             <!-- TODO ANDRIJA ovo method i enctype xD -->
-		    <form method="post" enctype="multipart/form-data" @submit.prevent="register" @keyup.enter="register">
+		    <!-- <form method="post" enctype="multipart/form-data" @submit.prevent="register" @keyup.enter="register"> -->
+		    <form @submit.prevent="register" @keyup.enter="register">
                 <p class="name">
                     <input v-model="username" type="text" class="feedback-input" required placeholder="USERNAME" id="name" />
                 </p>
@@ -24,18 +25,21 @@
                     <input v-model="password" type="password" required  class="feedback-input" id="email" placeholder="PASSWORD" />
                 </p>
                 <p class="email">
-                    <input v-model="password_rep" type="password" required  class="feedback-input" id="email" placeholder="REPEAT PASSWORD" />
+                    <input type="password" required  class="feedback-input" id="email" placeholder="REPEAT PASSWORD" />
+                    <!-- <input v-model="password_rep" type="password" required  class="feedback-input" id="email" placeholder="REPEAT PASSWORD" /> -->
                 </p>
                     
                 <button type="submit" class="button">REGISTER</button>
             </form>
             <!-- TODO ANDRIJA ZAJEBANCIJA -->
-            <div style="color: red; font-size: 2rem; text-align:center;" id="poruka">{{ poruka }} </div>
+            <div style="color: red; font-size: 2rem; text-align:center;" id="poruka">{{ primio }} </div>
         </div>
   	</div>
 </template>
 
 <script>
+    import AuthenticationService from '../services/AuthenticationService'
+
 	export default {
     	name: 'register',
 		data() {
@@ -43,33 +47,30 @@
 				username:'',
 				email:'',
                 password:'',
-                password_rep:'',
-                poruka: ''
+                // password_rep:'',
+                primio: '333'
 			}
         },
         methods: {
-        register() {
-            this.poruka = 'pederu'
-            // TODO ANDRIJA TODO VELJKO cekamo backend da prihvati ovo
-			// try {
-			// 	const response = await AuthenticationService.register({
-            // 		username: this.username,
-            //      email: this.email,
-            // 		password: this.password,
-            //      password_rep: this.password_rep // TODO ANDRIJA DA LI DA SALJEM OVAKO
-			// 	})
-			// 	console.log(response.data)
+        async register() {
+			try {
+				const response = await AuthenticationService.register({
+            		username: this.username,
+                    email: this.email,
+            		password: this.password,
+                    // password_rep: this.password_rep // TODO ANDRIJA DA LI DA SALJEM OVAKO
+				})
+				console.log(response.data);
 
-
-			// 	this.primio = response.data;
-			// 	if (this.primio.odgovor == "ok"){
-			// 		// nek router prenese parametre
-			// 		this.$router.push({ name: 'shop', params: { username: this.username, password: this.password }})
-			// 	}
-			// 	else this.$router.push('/error');
-			// } catch (err) {
-			//  	console.log(err);
-			// }
+				this.primio = response.data;
+				// if (this.primio.odgovor == "ok"){
+				// 	// nek router prenese parametre
+				// 	this.$router.push({ name: 'shop', params: { username: this.username, password: this.password }})
+				// }
+				// else this.$router.push('/error');
+			} catch (err) {
+			 	console.log(err);
+			}
         }
   }
     }
