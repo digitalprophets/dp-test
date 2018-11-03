@@ -1,16 +1,11 @@
-const Sequelize=require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+    const Product = sequelize.define('Product',{
+            name: DataTypes.STRING,
+            price: DataTypes.INTEGER,
+            category: DataTypes.STRING,
+            description: DataTypes.TEXT,
+            //image: DataTypes.
+        });
 
-const connection = require('../startup/db')
-
-module.exports = (Sequelize, DataTypes) =>
-    connection.define('Product',{
-        name: DataTypes.STRING,
-        price: DataTypes.INTEGER,
-        category: DataTypes.STRING,
-        description: DataTypes.TEXT,
-        //image: DataTypes.
-    });
-
-connection.sync().then(function() {
-    
-});
+    return Product;
+}

@@ -27,6 +27,13 @@ npm install --save mysql2
 Workbench ---> https://dev.mysql.com/downloads/workbench/
 
 Wampserver
+
+Potreban samo mysql server baze podataka da bude instaliran na sistemu (WAMP)
+I najnormalnije npm i u folderu server
+Za sad je moguce povezati se sa bazom samo ako je napravljena rucno
+(za sad aplikacija ne ume da napravi bazu, ali tabele u praznoj bazi ume da napravi)
+Zbog toga je potrebno da postoji baza pod imenom 'dptest'
+
 ---------- GIT ------------
 
 git clone https://github.com/Visualiser/dp-test.git
