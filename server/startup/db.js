@@ -1,4 +1,5 @@
+const Sequelize = require('sequelize');
+
 module.exports = () => {
-    // TODO Veljko
-    // Ovde ide kod za konekciju ka bazi
+    const connection = new Sequelize('baza','root','')
 }

@@ -18,6 +18,15 @@ npm install express
 
 nodemon index.js // nodemon je active, a moze i samo "node index.js" ali to nece da prepoznaje aktivne promene fajlova nego mora se ugasi pa pokrene opet server
 
+---------- BAZA------------
+
+npm install --save sequelize
+
+npm install --save mysql2
+
+Workbench ---> https://dev.mysql.com/downloads/workbench/
+
+Wampserver
 ---------- GIT ------------
 
 git clone https://github.com/Visualiser/dp-test.git
