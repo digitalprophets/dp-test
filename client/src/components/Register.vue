@@ -48,7 +48,7 @@
 				email:'',
                 password:'',
                 // password_rep:'',
-                primio: '333'
+                primio: ''
 			}
         },
         methods: {
@@ -58,18 +58,21 @@
             		username: this.username,
                     email: this.email,
             		password: this.password,
-                    // password_rep: this.password_rep // TODO ANDRIJA DA LI DA SALJEM OVAKO
+                    // password_rep: this.password_rep // TODO ANDRIJA DA LI DA SALJEM OVO
 				})
 				console.log(response.data);
 
-				this.primio = response.data;
+                this.primio = response.data;
+                // TODO ANDRIJA cu stavim sve u store object o tom potom.. ovde bitno da vimo kako cemo logiku
+				this.$router.push({ name: 'products', params: { username: this.username } })
 				// if (this.primio.odgovor == "ok"){
 				// 	// nek router prenese parametre
 				// 	this.$router.push({ name: 'shop', params: { username: this.username, password: this.password }})
 				// }
 				// else this.$router.push('/error');
 			} catch (err) {
-			 	console.log(err);
+                 console.log(err);
+                 this.primio = err;
 			}
         }
   }

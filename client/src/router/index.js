@@ -29,7 +29,7 @@ export default new VueRouter({
       path: '/product', name: 'product', component: Product 
     },
     {
-      path: '/testing', name: 'header', component: Header
+      path: '/testing', name: 'header', component: Header, props: { header_content5: '' }
       // , props: { header_content1: 'govna' } TODO ANDRIJA msm sta reci ovo jos samo da dodam
     },
     {

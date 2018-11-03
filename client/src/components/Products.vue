@@ -1,13 +1,10 @@
 <template>
 	<div class="products page">	
-		<Header />
+		<Header :header_content5="username" />
 
     	<div id="main_content">
 			<div id="main_content_text">
-				<h1>Ovo je products page username je 
-		  			<span id="korisnik" style="color:red;">{{ user }}</span> 
-		  			a sifra je <span id="lozinka" style="color:blue;">{{pass}}</span>
-				</h1>
+				<h1>Welcome, {{ username }}</h1>
 			</div>
 			
 			<div id ="product_section">
@@ -33,8 +30,7 @@ import Header from './Header.vue'
     	name: 'products',
 		data() {
 			return {
-				user:'',
-				pass:'',
+				username:'',
 				products: null,
 				proizvodi: [
 					{
@@ -68,8 +64,8 @@ import Header from './Header.vue'
 			Header
 		},
    		created() {
-       	    this.user = this.$route.params.username;
-           	this.pass = this.$route.params.password;
+       	    this.username = this.$route.params.username;
+           	this.password = this.$route.params.password;
 		},
 		async mounted() {
 			// TODO ANDRIJA ovde uhvati proizvode sa backenda
@@ -110,6 +106,8 @@ import Header from './Header.vue'
 	justify-self: center;
 	text-align: center;
 	font-size: 22px;
+	border: 1px solid white;
+	padding: 10px;	
 }
 
 #product_section {
@@ -151,19 +149,6 @@ button {
 	padding: 3px;
 	transition: all 0.3s;
 	font-weight: 700;
-}
-
-#korisnik {
-	/* span mora da ima inline block inace ne moz se animira! */
-	display: inline-block;
-	-webkit-animation: vibrate-3 0.5s linear infinite both;
-	        animation: vibrate-3 0.5s linear infinite both;
-}
-
-#lozinka {
-	display: inline-block;
-	-webkit-animation: vibrate-3 0.5s linear infinite reverse both;
-	        animation: vibrate-3 0.5s linear infinite reverse both;
 }
 
 @media all and (max-width: 1300px) {
@@ -217,97 +202,4 @@ button {
 	
 }
 
-@-webkit-keyframes vibrate-3 {
-  0% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-  }
-  10% {
-    -webkit-transform: translate(-2px, -2px);
-            transform: translate(-2px, -2px);
-  }
-  20% {
-    -webkit-transform: translate(2px, -2px);
-            transform: translate(2px, -2px);
-  }
-  30% {
-    -webkit-transform: translate(-2px, 2px);
-            transform: translate(-2px, 2px);
-  }
-  40% {
-    -webkit-transform: translate(2px, 2px);
-            transform: translate(2px, 2px);
-  }
-  50% {
-    -webkit-transform: translate(-2px, -2px);
-            transform: translate(-2px, -2px);
-  }
-  60% {
-    -webkit-transform: translate(2px, -2px);
-            transform: translate(2px, -2px);
-  }
-  70% {
-    -webkit-transform: translate(-2px, 2px);
-            transform: translate(-2px, 2px);
-  }
-  80% {
-    -webkit-transform: translate(-2px, -2px);
-            transform: translate(-2px, -2px);
-  }
-  90% {
-    -webkit-transform: translate(2px, -2px);
-            transform: translate(2px, -2px);
-  }
-  100% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-  }
-}
-
-@keyframes vibrate-3 {
-  0% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-  }
-  10% {
-    -webkit-transform: translate(-2px, -2px);
-            transform: translate(-2px, -2px);
-  }
-  20% {
-    -webkit-transform: translate(2px, -2px);
-            transform: translate(2px, -2px);
-  }
-  30% {
-    -webkit-transform: translate(-2px, 2px);
-            transform: translate(-2px, 2px);
-  }
-  40% {
-    -webkit-transform: translate(2px, 2px);
-            transform: translate(2px, 2px);
-  }
-  50% {
-    -webkit-transform: translate(-2px, -2px);
-            transform: translate(-2px, -2px);
-  }
-  60% {
-    -webkit-transform: translate(2px, -2px);
-            transform: translate(2px, -2px);
-  }
-  70% {
-    -webkit-transform: translate(-2px, 2px);
-            transform: translate(-2px, 2px);
-  }
-  80% {
-    -webkit-transform: translate(-2px, -2px);
-            transform: translate(-2px, -2px);
-  }
-  90% {
-    -webkit-transform: translate(2px, -2px);
-            transform: translate(2px, -2px);
-  }
-  100% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-  }
-}
 </style>
