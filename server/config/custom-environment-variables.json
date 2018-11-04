@@ -1,0 +1,9 @@
+{
+    "port": "PORT",
+    
+    "db": {
+        "name": "dptest_DB_NAME",
+        "username": "dptest_DB_USERNAME",
+        "password": "dptest_DB_PASSWORD"
+    }
+}

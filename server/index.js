@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+// config values
+const config = require('config');
+
 // for handling exceptions
 require('express-async-errors');
 
@@ -26,7 +29,7 @@ require('./startup/routes')(app);
 require('./models');
 
 // listen to requests
-const port = process.env.port || 8081;
+const port = config.get('port');
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });

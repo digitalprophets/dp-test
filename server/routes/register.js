@@ -6,6 +6,7 @@ router.post('/', async (req, res) => {
     // validate username, email and password
     // can also be done in client app too
 
+    console.log(db.User);
     // insert into db
     const user = db.User.build({
         username: req.body.username,

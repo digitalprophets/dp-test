@@ -1,24 +1,24 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
+const config = require('config');
 
 // name of the current file
 const basename = path.basename(module.filename);
 
 // object to store all models and connection object
-const db = {};
+const db = config.get('db');
 
 // connect to database server
-const sq = new Sequelize('', 'root', '', {
+const sq = new Sequelize('', db.username, db.password, {
     host: 'localhost',
-            dialect: 'mysql',
-        
-            pool: {
-            max: 1,
-            min: 0,
-            acquire: 30000,
-            idle: 10000
-            },
+    dialect: 'mysql',
+    pool: {
+        max: 1,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    },
 });
 
 // test connection to database server
@@ -33,15 +33,14 @@ sq
             sq.close();
     
             // connect to database
-            const sequelize = new Sequelize('dptest', 'root', '', {
+            const sequelize = new Sequelize(db.name, db.username, db.password, {
                 host: 'localhost',
                 dialect: 'mysql',
-            
                 pool: {
-                max: 5,
-                min: 0,
-                acquire: 30000,
-                idle: 10000
+                    max: 5,
+                    min: 0,
+                    acquire: 30000,
+                    idle: 10000
                 },
             });
     
@@ -79,6 +78,9 @@ sq
     
             module.exports = db;
         })
+        .catch( err => {
+            console.log('Connection to database unsuccessfull', err);
+        });
     })
     .catch( err => {
         console.log('Unable to create database', err);
