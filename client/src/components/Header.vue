@@ -16,7 +16,7 @@
             <div v-on:click="openUser" class="header_content" id="header_content5">
                 {{ $store.state.username }}
 		    </div>
-            <div class="header_content" id="header_content6">
+            <div v-on:click="logout" class="header_content" id="header_content6">
                 {{ header_content6 }}
 		    </div>
 
@@ -27,7 +27,7 @@
                     <a href="#">{{ header_content3 }}</a>
                     <a href="#">{{ header_content4 }}</a>
                     <a v-on:click="openUser" href="#">{{ $store.state.username }}</a>
-                    <a href="#">{{ header_content6 }}</a>
+                    <a v-on:click="logout" href="#">{{ header_content6 }}</a>
                 </div>
             </div>
         </div>
@@ -69,7 +69,11 @@
         },
         methods: {
             openUser() {
-                this.$router.push({ name: 'user'})
+                this.$router.push({ name: 'user' })
+            },
+            logout() {
+                this.$store.dispatch('removeStoreData');
+                this.$router.push({ name: 'main' })
             },
             toggleDropdownItems() {
                 if (this.flag==1) {
@@ -119,7 +123,7 @@
     text-align: end;
 }
 
-#header_content5:hover {
+#header_content5:hover, #header_content6:hover {
     cursor: pointer;
 }
 

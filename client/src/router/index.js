@@ -16,7 +16,7 @@ export default new VueRouter({
   base: __dirname,
   routes: [
     {
-      path: '/', component: Main
+      path: '/', name: 'main', component: Main
     },
     {
       path: '/register', name: 'register', component: Register

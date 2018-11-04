@@ -5,7 +5,8 @@
 		<div id="container">
 			
 			<div id="user_data">
-				<div id="user_name">Novi Korisnik</div>
+				<div v-if="$store.state.isLoggedIn" id="user_name">{{ $store.state.username }}</div>
+				<div v-else id="user_name">Novi Korisnik</div>
 				<div id="user_total_purchases">Total purchases: 20</div>
 				<div id="user_total_sales">Total sales: 10</div>
 				<div id="user_total_active_ads">Active ads: 2</div>
@@ -68,15 +69,16 @@ import Header from './Header.vue'
 }
 
 #user_data{
-	height: 70%;
+	height: 90%;
 	width: 100%;
-	padding-top: 5%;
+	padding-top:2%;
 	padding-bottom: 10%;
+	padding-left:10%;
 	color: white;
 	font-family: 'Lato', sans-serif;
 	font-size: 1vw;	
 	display: grid;
-	grid-template-rows: 20% 3% 3% 3% auto auto;
+	grid-template-rows: 15% 3% 3% 3% auto auto;
 }
 
 #user_name {
@@ -106,7 +108,7 @@ import Header from './Header.vue'
 
 form {
 	padding-left: 10%;
-	align-self: end;
+	align-self: center;
 }
 
 #form_name {

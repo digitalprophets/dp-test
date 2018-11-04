@@ -13,9 +13,15 @@ export default new Vuex.Store({
     mutations: {
         setUsername(state, username) { // dole mora da postoji ovakvo ime u mutations
             state.username = username;
+            state.isLoggedIn = true;
         },
         setToken(state, token) { // dole mora da postoji ovakvo ime u mutations
             state.token = token;
+        },
+        removeStoreData(state){
+            state.username = null;
+            state.isLoggedIn = false;
+            state.token = null;
         }
     },
     actions: {
@@ -24,6 +30,9 @@ export default new Vuex.Store({
         },
         setToken({commit}, token) {
             commit('setToken', token)
+        },
+        removeStoreData({commit}){
+            commit('removeStoreData')
         }
     }
 })
