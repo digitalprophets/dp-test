@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+// config values
+const config = require('config');
+
 // for handling exceptions
 require('express-async-errors');
 
@@ -10,14 +13,13 @@ process.on('unhandledRejection', (ex) => {
 });
 
 // parses the request to JSON format
-//and puts the result in req.body
+// and puts the result in req.body
 app.use(express.json());
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// add headers to response so that front end
+// can read them
+const header = require('./middleware/header');
+app.use(header);
   
 // config
 require('./startup/config')();
@@ -27,7 +29,7 @@ require('./startup/routes')(app);
 require('./models');
 
 // listen to requests
-const port = process.env.port || 8081;
+const port = config.get('port');
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });

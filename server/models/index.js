@@ -1,35 +1,42 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
+const config = require('config');
 
 // name of the current file
 const basename = path.basename(module.filename);
 
 // object to store all models and connection object
-const db = {};
+const db = config.get('db');
 
-// connect to database
-const sequelize = new Sequelize('dptest', 'root', '', {
+// connect to database server
+const sq = new Sequelize('', db.username, db.password, {
     host: 'localhost',
     dialect: 'mysql',
-  
     pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
+        max: 1,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
     },
 });
 
-// check if connection is successfull
-sequelize
-    .authenticate()
-    .then( () => {
-        console.log('Connected to database');
-    })
-    .catch( err => {
-        console.log('Failed to connect to the database', err);
-    });
+// create database if not exits
+sq.query('CREATE DATABASE IF NOT EXISTS dptest');
+
+// connect to database
+const sequelize = new Sequelize(db.name, db.username, db.password, {
+    host: 'localhost',
+    dialect: 'mysql',
+    pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    },
+});
+    
+console.log('Connected to database');
 
 // load all models into db object
 fs
