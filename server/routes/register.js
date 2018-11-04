@@ -13,9 +13,14 @@ router.post('/', async (req, res) => {
         password: req.body.password
     });
 
-    await user.save();
-    // check for errors sent by db
-    // if any errors return 400 bad request and err.message
+    try{
+        await user.save();
+    }
+    catch(err) {
+        // check for errors sent by db
+        // if any errors return 400 bad request and err.message
+        return res.status(400).send(err.errors[0].message);
+    }
 
     // generate jwt
     // return user object in body and jwt in header

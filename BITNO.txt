@@ -71,3 +71,10 @@ jer erroruje kad ima space viska i sl. meni smeta, ako smeta sto smeta, vraticu,
 
 Ne umem da main page konvertujem u lep grid jer sam ko debil pravio ovu animaciju u absolute position,
 zato se logo i tabela overlapuju kad se smanji prozor jbg // Andrija
+
+---------------- TO DO ----------------
+
+------ BACK END ------
+- generisanje json web token
+- upload slika za proizvode
+- istorija kupovine
