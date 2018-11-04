@@ -14,7 +14,7 @@
                 {{ header_content4 }}
 		    </div>
             <div v-on:click="openUser" class="header_content" id="header_content5">
-                {{ header_content5 }}
+                {{ $store.state.username }}
 		    </div>
             <div class="header_content" id="header_content6">
                 {{ header_content6 }}
@@ -26,7 +26,7 @@
                     <a href="#">{{ header_content2 }}</a>
                     <a href="#">{{ header_content3 }}</a>
                     <a href="#">{{ header_content4 }}</a>
-                    <a v-on:click="openUser" href="#">{{ header_content5 }}</a>
+                    <a v-on:click="openUser" href="#">{{ $store.state.username }}</a>
                     <a href="#">{{ header_content6 }}</a>
                 </div>
             </div>

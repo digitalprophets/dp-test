@@ -1,10 +1,10 @@
 <template>
 	<div class="products page">	
-		<Header :header_content5="username" />
+		<Header />
 
     	<div id="main_content">
 			<div id="main_content_text">
-				<h1>Welcome, {{ username }}</h1>
+				<h1>Welcome, {{ $store.state.username }}</h1>
 			</div>
 			
 			<div id ="product_section">
