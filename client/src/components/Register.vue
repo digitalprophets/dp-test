@@ -16,23 +16,34 @@
 		    <!-- <form method="post" enctype="multipart/form-data" @submit.prevent="register" @keyup.enter="register"> -->
 		    <form @submit.prevent="register" @keyup.enter="register">
                 <p class="name">
-                    <input v-model="username" type="text" class="feedback-input" required placeholder="USERNAME" id="name" />
+                    <input v-validate="'alpha_dash'" name="username" v-model="username" type="text" class="feedback-input" required placeholder="USERNAME" id="name" />
                 </p>
                 <p class="email">
-                    <input v-model="email" type="email" required  class="feedback-input" id="email" placeholder="EMAIL" />
+                    <input v-validate="'email'" name="email" v-model="email" type="email" required  class="feedback-input" id="email" placeholder="EMAIL" />
+                </p>
+                <!-- TODO ANDRIJA class email xD -->
+                <p class="email">
+                    <input v-validate="'required'"  name="password" ref="password" v-model="password" type="password" class="feedback-input" id="email" placeholder="PASSWORD" />
                 </p>
                 <p class="email">
-                    <input v-model="password" type="password" required  class="feedback-input" id="email" placeholder="PASSWORD" />
-                </p>
-                <p class="email">
-                    <input type="password" required  class="feedback-input" id="email" placeholder="REPEAT PASSWORD" />
+                    <input v-validate="'required|confirmed:password'" name="password_confirmation" type="password" class="feedback-input" id="email" placeholder="REPEAT PASSWORD" />
                     <!-- <input v-model="password_rep" type="password" required  class="feedback-input" id="email" placeholder="REPEAT PASSWORD" /> -->
                 </p>
-                    
+
                 <button type="submit" class="button">REGISTER</button>
             </form>
             <!-- TODO ANDRIJA ZAJEBANCIJA -->
-            <div style="color: red; font-size: 2rem; text-align:center;" id="poruka">{{ primio }} </div>
+            <div style="color: red; font-size: 2rem; text-align:center;" id="poruka">
+                {{ primio }} 
+                
+                <span v-show="errors.has('username')" id="poruka">{{ errors.first('username') }}</span>
+                <span v-show="errors.has('email')" id="poruka">{{ errors.first('email') }}</span>
+                <span v-show="errors.has('password')" id="poruka">{{ errors.first('password') }}</span>
+                <span v-show="errors.has('password_confirmation')" id="poruka">{{ errors.first('password_confirmation') }}</span>
+
+            </div>
+                    
+
         </div>
   	</div>
 </template>
@@ -98,12 +109,9 @@
 
 .header {
     background-color:darkred;
-    padding:10px;
 	border: 2px solid white;
 	font-size: 2rem;
-
     display: grid;
-
 	font-weight: bold;
 	-webkit-animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 	        animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
@@ -112,13 +120,8 @@
 
 .header_content{
     width: fit-content;
-
     align-self: center;
     justify-self: center;
-}
-
-.header_content:hover {
-	cursor: pointer;
 }
 
 #main_content {
