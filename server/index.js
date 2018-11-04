@@ -10,14 +10,13 @@ process.on('unhandledRejection', (ex) => {
 });
 
 // parses the request to JSON format
-//and puts the result in req.body
+// and puts the result in req.body
 app.use(express.json());
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// add headers to response so that front end
+// can read them
+const header = require('./middleware/header');
+app.use(header);
   
 // config
 require('./startup/config')();
