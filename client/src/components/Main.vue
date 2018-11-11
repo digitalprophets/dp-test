@@ -12,7 +12,7 @@
 				<input v-model="username" id="username" type="text" name="username" placeholder="Username"> <!-- skidam required sa kraja i odozdo-->
 				<input v-model="password" id="password" type="password" name="password" placeholder="Password">
 		
-				<button id="login_button" name="login_button">Uloguj se</button>
+				<button id="login_button" name="login_button">Login</button>
 				<!-- <button v-on:click="logIn" id="login_button" name="login_button">Uloguj se</button> -->
 				<button v-on:click="register" type="button" id="register_button" name="register_button">Register</button>
 			

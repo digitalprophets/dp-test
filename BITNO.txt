@@ -1,6 +1,6 @@
 ---------- VUE ------------
 
-npm install vue
+npm install -g @vue/cli
 
 vue create naziv_projekta
 

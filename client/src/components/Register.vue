@@ -23,10 +23,10 @@
                 </p>
                 <!-- TODO ANDRIJA class email xD -->
                 <p class="email">
-                    <input v-validate="'required'"  name="password" ref="password" v-model="password" type="password" class="feedback-input" id="email" placeholder="PASSWORD" />
+                    <input v-validate="'required'" name="password" ref="password" required v-model="password" type="password" class="feedback-input" id="email" placeholder="PASSWORD" />
                 </p>
                 <p class="email">
-                    <input v-validate="'required|confirmed:password'" name="password_confirmation" type="password" class="feedback-input" id="email" placeholder="REPEAT PASSWORD" />
+                    <input v-validate="'required|confirmed:password'" name="password_confirmation" required type="password" class="feedback-input" id="email" placeholder="REPEAT PASSWORD" />
                     <!-- <input v-model="password_rep" type="password" required  class="feedback-input" id="email" placeholder="REPEAT PASSWORD" /> -->
                 </p>
 
